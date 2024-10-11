@@ -1,46 +1,56 @@
-// src/Components/Navbar.tsx
 import React from 'react';
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css'; // Ensure this CSS file exists and is properly styled
 
 const Navbar: React.FC = () => {
-    return (
-        <nav>
-            <ul className="navbarList">
-                <li>
-                    <NavLink 
-                        to="/" 
-                        className={({ isActive }: NavLinkProps) => (isActive ? "navLink activeLink" : "navLink")}
-                    >
-                        Dashboard
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                        to="/expenses" 
-                        className={({ isActive }: NavLinkProps) => (isActive ? "navLink activeLink" : "navLink")}
-                    >
-                        Expenses
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                        to="/reports" 
-                        className={({ isActive }: NavLinkProps) => (isActive ? "navLink activeLink" : "navLink")}
-                    >
-                        Reports
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                        to="/settings" 
-                        className={({ isActive }: NavLinkProps) => (isActive ? "navLink activeLink" : "navLink")}
-                    >
-                        Settings
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
-    );
+  return (
+    <aside className="sidebar">
+      <nav>
+        <ul className="navbarList">
+          <li>
+            <NavLink
+              exact
+              to="/"
+              className="navLink"
+              activeClassName="activeLink"
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/expenses"
+              className="navLink"
+              activeClassName="activeLink"
+            >
+              Expenses
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/reports"
+              className="navLink"
+              activeClassName="activeLink"
+            >
+              Reports
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/settings"
+              className="navLink"
+              activeClassName="activeLink"
+            >
+              Settings
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  );
 };
 
 export default Navbar;
