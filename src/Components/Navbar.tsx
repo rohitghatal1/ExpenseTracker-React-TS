@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Navbar.css'; // Ensure this CSS file exists and is properly styled
+import '../CSS/navbar.css'; // Ensure this CSS file exists and is properly styled
 
 const Navbar: React.FC = () => {
   return (
     <aside className="sidebar">
-      <nav>
+      <nav className='navbar'>
         <ul className="navbarList">
           <li>
             <NavLink
