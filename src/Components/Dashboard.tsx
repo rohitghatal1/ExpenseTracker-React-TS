@@ -9,6 +9,8 @@ const Dashboard:React.FC = () => {
         </div>
         <div className="div2">
             <p>This is lower lavel</p>
+            <button className='btn1'>Add expense</button>
+            <button className='btn2'>Cancel</button>
         </div>
         </>
     )
