@@ -1,0 +1,39 @@
+  /* Responsive styling for tablets */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+    }
+    
+    .navLink {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+  
+  /* Responsive styling for mobile */
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 60px;
+    }
+  
+    .navLink {
+      font-size: 14px;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .navLink::before {
+      content: attr(data-label);
+      display: none;
+    }
+  
+    .navbarList li {
+      margin-bottom: 15px;
+    }
+  
+    /* Icons-only sidebar for mobile */
+    .navLink:before {
+      display: block;
+    }
+  }
+  
