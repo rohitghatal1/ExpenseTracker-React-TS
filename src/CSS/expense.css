@@ -2,4 +2,11 @@
     background-color: var(--background-color);
     padding: 1rem;
     margin-left: 260px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expenseComponent .expenseContainer{
+    padding: 0.5rem;
+    background-color: var(--secondary-color);
 }
