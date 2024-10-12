@@ -1,0 +1,5 @@
+.expenseComponent{
+    background-color: var(--background-color);
+    padding: 1rem;
+    margin-left: 260px;
+}
