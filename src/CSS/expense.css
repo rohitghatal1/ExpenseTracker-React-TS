@@ -19,7 +19,6 @@
 .expenseComponent .newExpenseSection{
     background-color: var(--body-color);
     color: var(--text-color);
-    /* min-height: 50px; */
     border-radius: 10px;
     padding: 1rem;
 }
