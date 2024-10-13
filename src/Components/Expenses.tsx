@@ -7,7 +7,7 @@ const Expenses: React.FC = () => {
             <div className="expenseComponent">
                 <section className="newExpenseSection">
                     <div className="addNewExpense">
-                        
+                        <button><i className="fa-solid fa-plus"></i> Add Expense</button>
                     </div>
                 </section>
                 <div className="expenseContainer">
