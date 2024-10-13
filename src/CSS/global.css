@@ -1,8 +1,12 @@
 :root{
     --body-color: #134B70;
+    --body-hover: #1A5e8E;
     --primary-color: #201E43;
+    --primary-hover: #2D2A5A;
     --secondary-color: #FF6F61;
+    --secondary-hover: #FF8A7A;
     --background-color: #508C9B;
+    --background-hover: #6AA3B0;
     --text-color: #EEEEEE;
 }
 

@@ -19,7 +19,33 @@
 .expenseComponent .newExpenseSection{
     background-color: var(--body-color);
     color: var(--text-color);
+    /* min-height: 50px; */
+    border-radius: 10px;
+    padding: 1rem;
 }
+
+.expenseComponent .newExpenseSection .addNewExpense{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expenseComponent .newExpenseSection .addNewExpense .addExpensebtn{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 7px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all ease 0.4s;
+}
+
+.expenseComponent .newExpenseSection .addNewExpense .addExpensebtn:hover{
+    transform: scale(1.05);
+    background-color: var(--primary-hover);
+}
+
 .expenseComponent .expenseContainer{
     padding: 0.5rem;
     background-color: var(--secondary-color);
