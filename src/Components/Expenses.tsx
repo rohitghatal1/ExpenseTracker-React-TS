@@ -5,6 +5,10 @@ const Expenses: React.FC = () => {
     return(
         <div>
             <div className="expenseComponent">
+                <div className="expenseHeading">
+                    <h3>Expenses</h3>
+                    <span>Rs 28500</span>
+                </div>
                 <section className="newExpenseSection">
                     <div className="addNewExpense">
                         <button><i className="fa-solid fa-plus"></i> Add Expense</button>

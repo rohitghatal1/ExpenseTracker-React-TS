@@ -1,11 +1,12 @@
 :root{
-    --primary-color: #20C997;
+    --body-color: #134B70;
+    --primary-color: #201E43;
     --secondary-color: #FF6F61;
-    --background-color: #F8F9FA;
-    --text-color: #343A40;
+    --background-color: #508C9B;
+    --text-color: #EEEEEE;
 }
 
 body{
-    background-color: var(--background-color);
+    background-color: var(--body-color);
     color: var(--text-color);
 }
