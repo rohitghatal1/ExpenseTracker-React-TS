@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/expense.css";
 
 const Expenses: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
   return (
     <div>
       <div className="expenseComponent">
@@ -9,6 +11,7 @@ const Expenses: React.FC = () => {
           <h2>Expenses</h2>
           <span>Rs 28500</span>
         </div>
+
         <section className="newExpenseSection">
           <div className="addExpenseModal">
             <form className="addExpenseForm">
