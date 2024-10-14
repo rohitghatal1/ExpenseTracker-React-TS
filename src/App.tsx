@@ -8,12 +8,12 @@ import Reports from "./Components/Reports";
 
 function App() {
   return (
-    <>
+    <div className="app">
       {/* <Dashboard /> */}
       <Navbar/>
       <Expenses/>
       <Reports/>
-    </>
+    </div>
   );
 }
 
