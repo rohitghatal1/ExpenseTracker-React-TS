@@ -38,6 +38,25 @@
     align-items: center;
 }
 
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel .cancelBtn{
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 7px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all ease 0.4s;
+}
+
 .expenseComponent .newExpenseSection .addExpenseModal .formData{
     display: flex;
     justify-content: space-evenly;
@@ -62,7 +81,8 @@
     margin-right: 10px;
 }
 
-.expenseComponent .newExpenseSection .addNewExpense .addExpensebtn{
+.expenseComponent .newExpenseSection .addNewExpense .addExpensebtn,
+.expenseComponent .addExpenseModal .addExpenseForm .submitBtn{
     background-color: var(--primary-color);
     color: var(--text-color);
     padding: 10px 20px;
@@ -73,7 +93,8 @@
     transition: all ease 0.4s;
 }
 
-.expenseComponent .newExpenseSection .addNewExpense .addExpensebtn:hover{
+.expenseComponent .newExpenseSection .addNewExpense .addExpensebtn:hover,
+.expenseComponent .addExpenseModal .addExpenseForm .submitBtn:hover{
     transform: scale(1.05);
     background-color: var(--primary-hover);
 }

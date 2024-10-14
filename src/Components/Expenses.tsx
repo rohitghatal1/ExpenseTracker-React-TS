@@ -50,7 +50,10 @@ const Expenses: React.FC = () => {
                   ></textarea>
                 </div>
               </div>
-              <button className="submitBtn">Confirm</button>
+              <div className="confirmCancel">
+                <button className="submitBtn"><i className="fas fa-check"></i> Confirm</button>
+                <button className="cancelBtn"><i className="fas fa-times"></i> Cancel</button>
+              </div>
             </form>
           </div>
 
