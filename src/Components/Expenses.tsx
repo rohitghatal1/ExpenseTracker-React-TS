@@ -6,7 +6,7 @@ const Expenses: React.FC = () => {
     <div>
       <div className="expenseComponent">
         <div className="expenseHeading">
-          <h3>Expenses</h3>
+          <h2>Expenses</h2>
           <span>Rs 28500</span>
         </div>
         <section className="newExpenseSection">

@@ -16,6 +16,9 @@
     color: var(--text-color);
 }
 
+.expenseComponent .expenseHeading span{
+    font-size: 18px;
+}
 .expenseComponent .newExpenseSection{
     background-color: var(--body-color);
     color: var(--text-color);
