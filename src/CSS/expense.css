@@ -29,10 +29,16 @@
     align-items: center;
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal, .addExpenseForm{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm input, select, textarea{
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 .expenseComponent .newExpenseSection .addExpenseModal .expenseElement{
