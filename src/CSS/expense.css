@@ -106,5 +106,6 @@
 
 .expenseComponent .expenseContainer{
     padding: 0.5rem;
-    background-color: var(--secondary-color);
+    background-color: var(--body-color);
+    color: var(--text-color);
 }

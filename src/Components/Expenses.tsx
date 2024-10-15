@@ -73,7 +73,13 @@ const Expenses: React.FC = () => {
             </button>
           </div>}
         </section>
-        <div className="expenseContainer"></div>
+        <div className="expenseContainer">
+          <div className="expenseItemsContainer">
+            <div className="expenseItem">
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
