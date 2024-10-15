@@ -105,7 +105,9 @@
 }
 
 .expenseComponent .expenseContainer{
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: var(--body-color);
     color: var(--text-color);
+    margin-top: 1rem;
+    border-radius: 10px;
 }
