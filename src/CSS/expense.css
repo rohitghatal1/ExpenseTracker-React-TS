@@ -57,6 +57,11 @@
     transition: all ease 0.4s;
 }
 
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel .cancelBtn:hover{
+    background-color: var(--secondary-hover);
+    transform: scale(0.95);
+}
+
 .expenseComponent .newExpenseSection .addExpenseModal .formData{
     display: flex;
     justify-content: space-evenly;

@@ -4,6 +4,16 @@ import "../CSS/expense.css";
 const Expenses: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
+
+  const openNewExpenseModal = ():void => {
+    setIsModalOpen(true);
+    setIsAddButtonVisible(false);
+  }
+
+  const closeAddExpenseModal = ():void => {
+    setIsModalOpen(false);
+    setIsAddButtonVisible(true);
+  }
   return (
     <div>
       <div className="expenseComponent">
@@ -13,7 +23,7 @@ const Expenses: React.FC = () => {
         </div>
 
         <section className="newExpenseSection">
-          <div className="addExpenseModal">
+          {isModalOpen && <div className="addExpenseModal">
             <form className="addExpenseForm">
               <div className="formData">
                 <div className="expenseElement">
@@ -52,16 +62,16 @@ const Expenses: React.FC = () => {
               </div>
               <div className="confirmCancel">
                 <button className="submitBtn"><i className="fas fa-check"></i> Confirm</button>
-                <button className="cancelBtn"><i className="fas fa-times"></i> Cancel</button>
+                <button className="cancelBtn" onClick={closeAddExpenseModal}><i className="fas fa-times"></i> Cancel</button>
               </div>
             </form>
-          </div>
+          </div>}
 
-          <div className="addNewExpense">
-            <button className="addExpensebtn">
+          {isAddButtonVisible && <div className="addNewExpense">
+            <button className="addExpensebtn" onClick={openNewExpenseModal}>
               <i className="fa-solid fa-plus"></i> Add Expense
             </button>
-          </div>
+          </div>}
         </section>
         <div className="expenseContainer"></div>
       </div>
