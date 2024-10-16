@@ -12,11 +12,19 @@ const Navbar: React.FC = () => {
         </div>
         <div className="navigations">
           <ul className="navbarList">
-            <li className='navLink'>Dashboard</li>
+            <li className='navLink activeLink'>Dashboard</li>
             <li className='navLink'>Expenses</li>
             <li className='navLink'>Reports</li>
             <li className='navLink'>Extra</li>
           </ul>
+        </div>
+        <div className="settingUser">
+          <div className="userAccount">
+
+          </div>
+          <div className="settings">
+            <span><i className="fa-solid fa-gear"></i> Settings</span>
+          </div>
         </div>
       </nav>
     </aside>
