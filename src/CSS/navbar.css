@@ -14,8 +14,21 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 10px;
   }
   
+  .navbar .logo{
+    width: 100%;
+    height: 4rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+ .navbar .logo img{
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: difference;
+ }
   .navbarList {
     list-style: none;
     padding: 0;
