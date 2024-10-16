@@ -40,9 +40,9 @@ const Expenses: React.FC = () => {
                   <label htmlFor="category">Category</label>
                   <select name="" id="">
                     <option value="">Grocery</option>
-                    <option value="">Grocery</option>
-                    <option value="">Grocery</option>
-                    <option value="">Grocery</option>
+                    <option value="">Food</option>
+                    <option value="">Stationery</option>
+                    <option value="">Fruits</option>
                   </select>
                 </div>
 
@@ -76,7 +76,8 @@ const Expenses: React.FC = () => {
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
             <div className="expenseItem">
-              
+              <span className="expenseName">Food</span>
+              <span></span>
             </div>
           </div>
         </div>
