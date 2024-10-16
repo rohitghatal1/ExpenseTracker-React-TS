@@ -15,6 +15,7 @@
     flex-direction: column;
     height: 100%;
     padding: 10px;
+    gap: 1rem;
   }
   
   .navbar .logo{
@@ -46,6 +47,7 @@
     padding: 15px;
     display: block;
     transition: background-color 0.3s;
+    cursor: pointer;
   }
   
   .navLink:hover {

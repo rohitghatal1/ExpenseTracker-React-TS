@@ -10,6 +10,14 @@ const Navbar: React.FC = () => {
         <div className="logo">
           <img src={logo} alt="" />
         </div>
+        <div className="navigations">
+          <ul className="navbarList">
+            <li className='navLink'>Dashboard</li>
+            <li className='navLink'>Expenses</li>
+            <li className='navLink'>Reports</li>
+            <li className='navLink'>Extra</li>
+          </ul>
+        </div>
       </nav>
     </aside>
   );
