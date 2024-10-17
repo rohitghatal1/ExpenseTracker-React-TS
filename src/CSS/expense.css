@@ -158,5 +158,5 @@
 
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn:hover{
     transform: scale(0.95);
-    background-color: red;
+    background-color: var(--secondary-hover);
 }

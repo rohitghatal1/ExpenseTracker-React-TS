@@ -12,9 +12,9 @@ const Navbar: React.FC = () => {
         </div>
         <div className="navigations">
           <ul className="navbarList">
-            <li className='navLink activeLink'>Dashboard</li>
-            <li className='navLink'>Expenses</li>
-            <li className='navLink'>Reports</li>
+            <li className='navLink activeLink'><i className="fa-solid fa-table-columns"></i> Dashboard</li>
+            <li className='navLink'><i className="fas fa-wallet"></i> Expenses</li>
+            <li className='navLink'><i className="fas fa-file-alt"></i> Reports</li>
             <li className='navLink'>Extra</li>
           </ul>
         </div>
