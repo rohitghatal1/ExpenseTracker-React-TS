@@ -82,8 +82,8 @@ const Expenses: React.FC = () => {
               <span className="category">Food</span>
               </div>
               <div className="deleteUpdateExpense">
-                <button>Update</button>
-                <button>Delete</button>
+                <button><i className="fas fa-edit"></i> Update</button>
+                <button><i className="fa-solid fa-trash"></i> Delete</button>
               </div>
             </div>
           </div>
