@@ -124,3 +124,39 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense button{
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .updateBtn{
+    background-color: var(--update-btn-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .updateBtn:hover{
+    transform: scale(1.05);
+    background-color: var(--update-btn-hover);
+}
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn{
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn:hover{
+    transform: scale(0.95);
+    background-color: red;
+}
