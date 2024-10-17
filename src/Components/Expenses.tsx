@@ -78,7 +78,6 @@ const Expenses: React.FC = () => {
             <div className="expenseItem">
               <div className="expenseDetails">
               <span className="expenseName">Chaumin</span>
-              <span className="expenseDate">Yesterday</span>
               <span className="category">Food</span>
               </div>
               <div className="deleteUpdateExpense">
