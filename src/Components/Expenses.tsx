@@ -85,9 +85,9 @@ const Expenses: React.FC = () => {
           <div className="expenseItemsContainer">
             <div className="expenseItem">
               <div className="expenseDetails">
-                <div className="expenseCategory">
-                  <span className="expenseName">Chaumin</span>
-                  <span className="category">Food</span>
+                <div className="expenseNameCat">
+                  <span className="expenseName">Chaumin</span><br />
+                  <span className="category">(Food)</span>
                 </div>
                 <div className="expenseAmount">
                   <span>Rs 60</span>
