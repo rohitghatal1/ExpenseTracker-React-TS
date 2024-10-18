@@ -3,7 +3,12 @@ import React from 'react';
 import '../CSS/navbar.css'; // Ensure this CSS file exists and is properly styled
 import logo from '../assets/logo/trackfunds.png'
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  toggleTheme: () => void;
+  theme: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({toggleTheme, theme}) => {
   return (
     <aside className="sidebar">
       <nav className='navbar'>
@@ -22,8 +27,8 @@ const Navbar: React.FC = () => {
           <div className="userAccount">
 
           </div>
-          <div className="settings">
-            <span><i className="fa-solid fa-gear"></i> Settings</span>
+          <div className="modeSwitch">
+            <button onClick={toggleTheme}>{theme === "light"? "Switch to Dark Mode" : "Switch to Light Mode"}</button>
           </div>
         </div>
       </nav>

@@ -12,7 +12,38 @@
     --text-color: #EEEEEE;
 }
 
+/* Dark Mode */
+[data-theme="dark"] {
+    --body-color: #1E1E1E;
+    --body-hover: #2A2A2A;
+    --primary-color: #2D2D2D;
+    --primary-hover: #4F4F4F;
+    --secondary-color: #FF6F61;
+    --secondary-hover: red;
+    --background-color: #1C1C1C;
+    --background-hover: #2E2E2E;
+    --update-btn-color: #28a745;
+    --update-btn-hover: #218838;
+    --text-color: #FFFFFF;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+    --body-color: aliceblue; /* White background */
+    --body-hover: #F0F0F0; /* Light grey hover */
+    --primary-color: #2D2D2D; /* Dark grey for primary text */
+    --primary-hover: #4F4F4F; /* Slightly lighter dark grey for hover */
+    --secondary-color: #FF6F61; /* Red (remains same as dark mode) */
+    --secondary-hover: #FF4C39; /* Lighter red for hover */
+    --background-color: #F0F0F0; /* Light grey background */
+    --background-hover: #E5E5E5; /* Slightly darker light grey for hover */
+    --update-btn-color: #28a745; /* Green button (remains same) */
+    --update-btn-hover: #218838; /* Darker green for button hover */
+    --text-color: #2D2D2D; /* Dark grey text for better readability */
+}
+
 body{
     background-color: var(--body-color);
     color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
 }
