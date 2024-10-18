@@ -123,9 +123,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
+}
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails{
+    width: 80%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--primary-color);
 }
 
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense{
+    width: 20%;
     display: flex;
     gap: 0.5rem;
     align-items: center;
