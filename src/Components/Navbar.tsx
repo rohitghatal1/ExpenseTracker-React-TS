@@ -28,7 +28,11 @@ const Navbar: React.FC<NavbarProps> = ({toggleTheme, theme}) => {
 
           </div>
           <div className="modeSwitch">
-            <button onClick={toggleTheme}>{theme === "light"? "Switch to Dark Mode" : "Switch to Light Mode"}</button>
+            <button onClick={toggleTheme}>
+              {theme === "root" && "Switch to Dark Mode"}
+              {theme === "dark" && "Switch to Light Mode"}
+              {theme === "light" && "Switch to Root Theme"}
+            </button>
           </div>
         </div>
       </nav>
