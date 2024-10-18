@@ -57,4 +57,14 @@
   .activeLink {
     background-color: #1abc9c;
   }
+
+  .navbar .modeSwitch button{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid var(--text-color);
+    cursor: pointer;
+  }
   
