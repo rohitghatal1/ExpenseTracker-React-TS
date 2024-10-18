@@ -20,7 +20,7 @@
     --primary-hover: #4F4F4F;
     --secondary-color: #FF6F61;
     --secondary-hover: red;
-    --background-color: #1C1C1C;
+    --background-color: #292929;
     --background-hover: #2E2E2E;
     --update-btn-color: #28a745;
     --update-btn-hover: #218838;
@@ -29,17 +29,17 @@
 
 /* Light Mode */
 [data-theme="light"] {
-    --body-color: aliceblue; /* White background */
-    --body-hover: #F0F0F0; /* Light grey hover */
-    --primary-color: #2D2D2D; /* Dark grey for primary text */
-    --primary-hover: #4F4F4F; /* Slightly lighter dark grey for hover */
-    --secondary-color: #FF6F61; /* Red (remains same as dark mode) */
-    --secondary-hover: #FF4C39; /* Lighter red for hover */
-    --background-color: #F0F0F0; /* Light grey background */
-    --background-hover: #E5E5E5; /* Slightly darker light grey for hover */
-    --update-btn-color: #28a745; /* Green button (remains same) */
-    --update-btn-hover: #218838; /* Darker green for button hover */
-    --text-color: #2D2D2D; /* Dark grey text for better readability */
+    --body-color: #FFF;
+    --body-hover: #F0F0F0;
+    --primary-color: #4f4f4f;
+    --primary-hover: #4F4F4F;
+    --secondary-color: #FF6F61;
+    --secondary-hover: #FF4C39;
+    --background-color: grey;
+    --background-hover: #E5E5E5;
+    --update-btn-color: #28a745;
+    --update-btn-hover: #218838; 
+    --text-color: black;
 }
 
 body{
