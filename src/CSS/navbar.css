@@ -16,6 +16,7 @@
     height: 100%;
     padding: 10px;
     gap: 1rem;
+    position: relative;
   }
   
   .navbar .logo{
@@ -58,7 +59,14 @@
   .activeLink:hover{
     background-color: var(--background-hover);
   }
-  .navbar .modeSwitch button{
+
+  .navbar .modeSwitch{
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+  }
+
+  .navbar .modeSwitch select{
     background-color: var(--primary-color);
     color: var(--text-color);
     padding: 10px 20px;
