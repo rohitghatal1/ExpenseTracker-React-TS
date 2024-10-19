@@ -5,11 +5,11 @@ import "../CSS/navbar.css"; // Ensure this CSS file exists and is properly style
 import logo from "../assets/logo/trackfunds.png";
 
 interface NavbarProps {
-  toggleTheme: () => void;
+  changeTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   theme: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ toggleTheme, theme }) => {
+const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
   const [activeLink, setActiveLink] = useState<string>("dashboard");
 
   return (
@@ -59,11 +59,12 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, theme }) => {
         <div className="settingUser">
           <div className="userAccount"></div>
           <div className="modeSwitch">
-            <button onClick={toggleTheme}>
-              {theme === "root" && "Switch to Dark Mode"}
-              {theme === "dark" && "Switch to Light Mode"}
-              {theme === "light" && "Switch to Root Theme"}
-            </button>
+            <select value={theme} onChange={changeTheme}>
+              <option value="" disabled>Theme</option>
+              <option value="root">Default Theme</option>
+              <option value="dark">Dark Mode</option>
+              <option value="light">Light Mode</option>
+            </select>
           </div>
         </div>
       </nav>

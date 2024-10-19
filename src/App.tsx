@@ -18,17 +18,14 @@ const App: React.FC = () => {
   }, [theme]);
 
   // Toggle function to switch between root, dark, and light themes
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      if (prev === "root") return "dark";
-      if (prev === "dark") return "light";
-      return "root"; // Cycle back to root
-    });
-  };
+  const changeTheme = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedTheme = event.target.value;
+    setTheme(selectedTheme);
+  }
 
   return (
     <>
-    <Navbar toggleTheme={toggleTheme} theme={theme} />
+    <Navbar changeTheme={changeTheme} theme={theme} />
     <Routes>
       <Route path="/" element ={<Dashboard/>}/> 
       <Route path="/expenses" element={<Expenses/>}/>

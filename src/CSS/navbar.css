@@ -55,6 +55,9 @@
     background-color: var(--background-color);
   }
 
+  .activeLink:hover{
+    background-color: var(--background-hover);
+  }
   .navbar .modeSwitch button{
     background-color: var(--primary-color);
     color: var(--text-color);
