@@ -29,17 +29,17 @@
 
 /* Light Mode */
 [data-theme="light"] {
-    --body-color: #FFF;
+    --body-color: #f7f7f7;
     --body-hover: #F0F0F0;
-    --primary-color: #4f4f4f;
-    --primary-hover: #4F4F4F;
-    --secondary-color: #FF6F61;
+    --primary-color: #EAEAEA;
+    --primary-hover: #838388;
+    --secondary-color: #DC3545;
     --secondary-hover: #FF4C39;
-    --background-color: grey;
+    --background-color: #E5F4FD;
     --background-hover: #E5E5E5;
     --update-btn-color: #28a745;
     --update-btn-hover: #218838; 
-    --text-color: black;
+    --text-color: #333333;
 }
 
 body{

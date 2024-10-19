@@ -42,7 +42,7 @@
   
   .navLink {
     text-decoration: none;
-    color: #ecf0f1;
+    color: var(--text-color);
     font-size: 18px;
     padding: 15px;
     display: block;
@@ -51,11 +51,11 @@
   }
   
   .navLink:hover {
-    background-color: #34495e;
+    background-color: var(--primary-hover);
   }
   
   .activeLink {
-    background-color: #1abc9c;
+    background-color: var(--background-color);
   }
 
   .navbar .modeSwitch button{
