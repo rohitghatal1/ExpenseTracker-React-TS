@@ -37,10 +37,6 @@
     margin: 0;
   }
   
-  .navbarList li {
-    margin-bottom: 20px;
-  }
-  
   .navLink {
     text-decoration: none;
     color: var(--text-color);
@@ -49,10 +45,6 @@
     display: block;
     transition: background-color 0.3s;
     cursor: pointer;
-  }
-  
-  .navLink Link{
-    text-decoration: none;
   }
   
   .navLink:hover {
