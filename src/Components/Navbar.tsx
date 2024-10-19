@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
           <div className="userAccount"></div>
           <div className="modeSwitch">
             <select value={theme} onChange={changeTheme}>
-              <option value="" disabled>Theme</option>
+              <option value="" disabled>Select Theme</option>
               <option value="root">Default Theme</option>
               <option value="dark">Dark Mode</option>
               <option value="light">Light Mode</option>

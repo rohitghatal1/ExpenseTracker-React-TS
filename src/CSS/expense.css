@@ -74,6 +74,12 @@
     padding: 8px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm input::placeholder, select::placeholder, textarea::placeholder{
+    color: var(--text-color);
 }
 
 .expenseComponent .newExpenseSection .addExpenseModal .expenseElement{
