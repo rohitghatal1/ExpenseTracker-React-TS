@@ -1,5 +1,6 @@
 import React from 'react';
 // import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../CSS/navbar.css'; // Ensure this CSS file exists and is properly styled
 import logo from '../assets/logo/trackfunds.png'
 
@@ -17,10 +18,15 @@ const Navbar: React.FC<NavbarProps> = ({toggleTheme, theme}) => {
         </div>
         <div className="navigations">
           <ul className="navbarList">
-            <li className='navLink activeLink'><i className="fa-solid fa-table-columns"></i> Dashboard</li>
-            <li className='navLink'><i className="fas fa-wallet"></i> Expenses</li>
-            <li className='navLink'><i className="fas fa-file-alt"></i> Reports</li>
-            <li className='navLink'>Extra</li>
+            <li className='navLink activeLink'>
+              <Link to={"/"}><i className="fa-solid fa-table-columns"></i> Dashboard</Link>
+              </li>
+            <li className='navLink'>
+              <Link to={"/expenses"}><i className="fas fa-wallet"></i> Expenses</Link>
+            </li>
+            <li className='navLink'>
+              <Link to={"/reports"}><i className="fas fa-file-alt"></i> Reports</Link> 
+            </li>
           </ul>
         </div>
         <div className="settingUser">

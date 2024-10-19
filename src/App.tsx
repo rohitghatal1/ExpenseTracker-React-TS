@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Expenses from "./Components/Expenses";
 import Reports from "./Components/Reports";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./Components/Dashboard";
 
 const App: React.FC = () => {
   // Get the stored theme from localStorage or default to "root"
@@ -25,11 +27,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
-      <Navbar toggleTheme={toggleTheme} theme={theme} />
-      <Expenses />
-      <Reports />
-    </div>
+    <>
+    <Navbar toggleTheme={toggleTheme} theme={theme} />
+    <Routes>
+      <Route path="/" element ={<Dashboard/>}/> 
+      <Route path="/expenses" element={<Expenses/>}/>
+      <Route path="/reports" element={<Reports/>} />
+    </Routes>
+    </>
+
   );
 };
 
