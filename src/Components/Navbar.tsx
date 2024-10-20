@@ -11,11 +11,15 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
   const [activeLink, setActiveLink] = useState<string>("dashboard");
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
+  const toggleNavbar = ():void => {
+    setIsCollapsed(!isCollapsed);
+  }
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isCollapsed? 'collapsed' : ''}`}>
       <nav className="navbar">
-        <button className="sidebarAdjust" title="Collapse Navbar"><i className="fa-solid fa-arrow-right-long"></i></button>
+        <button className="sidebarAdjust" title="Collapse Navbar" onClick={toggleNavbar}><i className={`fa-solid ${isCollapsed? 'fa-arrow-right-long': 'fa-arrow-left-long'}`}></i></button>
         <div className="logo">
           <img src={logo} alt="" />
         </div>

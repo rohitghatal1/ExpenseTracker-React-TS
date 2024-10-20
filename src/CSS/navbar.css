@@ -10,6 +10,9 @@
     transition: width 0.3s ease;
   }
   
+.sidebar.collapsed{
+  width: 100px;
+}
   .navbar {
     display: flex;
     flex-direction: column;
