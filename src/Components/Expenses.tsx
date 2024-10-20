@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "../CSS/expense.css";
 
-const Expenses: React.FC = () => {
+interface NavbarProps{
+  isCollapsed: boolean;
+}
+
+const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
 
@@ -16,7 +20,7 @@ const Expenses: React.FC = () => {
   };
   return (
     <div>
-      <div className="expenseComponent">
+      <div className={`expenseComponent ${isCollapsed ? "collapsed": ""}`}>
         <div className="expenseHeading">
           <h2>Expenses</h2>
           <span>Rs 28500</span>

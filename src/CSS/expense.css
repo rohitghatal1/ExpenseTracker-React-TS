@@ -7,8 +7,13 @@
     border-radius: 10px;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
+    transition: all 0.3s ease;
 }
 
+.expenseComponent.collapsed{
+    margin-left: 90px;
+    width: 90%;
+}
 .expenseComponent .expenseHeading{
     display: flex;
     justify-content: space-between;
