@@ -15,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
   return (
     <aside className="sidebar">
       <nav className="navbar">
+        <button className="sidebarAdjust" title="Collapse Navbar"><i className="fa-solid fa-arrow-right-long"></i></button>
         <div className="logo">
           <img src={logo} alt="" />
         </div>
