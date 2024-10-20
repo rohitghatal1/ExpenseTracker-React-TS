@@ -7,25 +7,30 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./Components/Dashboard";
 
 const App: React.FC = () => {
-  // Get the stored theme from localStorage or default to "root"
+
   const storedTheme = localStorage.getItem("theme") || "root"; 
   const [theme, setTheme] = useState(storedTheme);
 
-  // Update the theme when it changes
+
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme); // Update theme
-    localStorage.setItem("theme", theme); // Persist the theme to localStorage
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme); 
   }, [theme]);
 
-  // Toggle function to switch between root, dark, and light themes
   const changeTheme = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedTheme = event.target.value;
     setTheme(selectedTheme);
   }
 
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+
+  const toggleNavbar = ():void => {
+    setIsCollapsed(!isCollapsed);
+  }
+
   return (
     <>
-    <Navbar changeTheme={changeTheme} theme={theme} />
+    <Navbar changeTheme={changeTheme} theme={theme} toggleNavbar={toggleNavbar} />
     <Routes>
       <Route path="/" element ={<Dashboard/>}/> 
       <Route path="/expenses" element={<Expenses/>}/>

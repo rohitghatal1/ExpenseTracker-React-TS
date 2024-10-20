@@ -2,7 +2,8 @@ import React, { useState } from "react";
 // import { NavLink } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import "../CSS/navbar.css"; // Ensure this CSS file exists and is properly styled
-import logo from "../assets/logo/trackfunds.png";
+import trackfund from "../assets/logo/trackfunds.png";
+import tf from "../assets/logo/tf.png"
 
 interface NavbarProps {
   changeTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -11,18 +12,16 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
   const [activeLink, setActiveLink] = useState<string>("dashboard");
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
-  const toggleNavbar = ():void => {
-    setIsCollapsed(!isCollapsed);
-  }
   return (
     <aside className={`sidebar ${isCollapsed? 'collapsed' : ''}`}>
       <nav className="navbar">
-        <button className="sidebarAdjust" title="Collapse Navbar" onClick={toggleNavbar}><i className={`fa-solid ${isCollapsed? 'fa-arrow-right-long': 'fa-arrow-left-long'}`}></i></button>
+        <button className="sidebarAdjust" title={`${isCollapsed? "Expand Navbar" : "Collapse Navbar"}`} onClick={toggleNavbar}><i className={`fa-solid ${isCollapsed? 'fa-arrow-right-long': 'fa-arrow-left-long'}`}></i></button>
+        
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src={isCollapsed? tf : trackfund} alt="" />
         </div>
+
         <div className="navigations">
           <ul className="navbarList">
             <Link
@@ -33,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
               onClick={() => setActiveLink("dashboard")}
             >
               <li className="linkItem">
-                <i className="fa-solid fa-table-columns"></i> Dashboard
+                <i className="fa-solid fa-table-columns"></i> <label htmlFor="">Dashboard</label>
               </li>
             </Link>
             <Link
@@ -44,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
               onClick={() => setActiveLink("expenses")}
             >
               <li className="linkItem">
-                <i className="fas fa-wallet"></i> Expenses
+                <i className="fas fa-wallet"></i> <label htmlFor="">Expenses</label> 
               </li>
             </Link>
             <Link
@@ -55,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
               onClick={() => setActiveLink("reports")}
             >
               <li className="linkItem">
-                <i className="fas fa-file-alt"></i> Reports
+                <i className="fas fa-file-alt"></i> <label htmlFor="">Reports</label> 
               </li>
             </Link>
           </ul>
