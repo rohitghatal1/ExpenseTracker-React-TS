@@ -34,8 +34,13 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 6px;
   }
   
+  .sidebar.collapsed .navbar .sidebarAdjust{
+    transform: translateX(-50%);
+  }
+
   .navbar .logo{
     margin-top: 2rem;
     width: 100%;
@@ -85,7 +90,7 @@
   .sidebar.collapsed .navbar .modeSwitch{
     display: none;
   }
-  
+
   .navbar .modeSwitch{
     position: absolute;
     bottom: 60px;
