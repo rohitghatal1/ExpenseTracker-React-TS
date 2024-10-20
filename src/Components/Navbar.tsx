@@ -8,9 +8,11 @@ import tf from "../assets/logo/tf.png"
 interface NavbarProps {
   changeTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   theme: string;
+  toggleNavbar: () => void;
+  isCollapsed: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme }) => {
+const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCollapsed }) => {
   const [activeLink, setActiveLink] = useState<string>("dashboard");
 
   return (

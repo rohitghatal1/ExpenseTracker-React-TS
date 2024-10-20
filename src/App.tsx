@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   return (
     <>
-    <Navbar changeTheme={changeTheme} theme={theme} toggleNavbar={toggleNavbar} />
+    <Navbar changeTheme={changeTheme} theme={theme} toggleNavbar={toggleNavbar} isCollapsed = {isCollapsed}/>
     <Routes>
       <Route path="/" element ={<Dashboard/>}/> 
       <Route path="/expenses" element={<Expenses/>}/>
