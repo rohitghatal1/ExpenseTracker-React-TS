@@ -28,7 +28,7 @@
     right: 4px;
     width: 30px;
     height: 30px;
-    background-color: var(--background-color);
+    background-color: var(--primary-hover);
     color: var(--text-color);
     display: flex;
     justify-content: center;
