@@ -119,7 +119,10 @@
   .navbar .modeSwitch{
     position: absolute;
     bottom: 60px;
-    left: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .navbar .modeSwitch select{
