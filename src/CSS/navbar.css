@@ -103,6 +103,15 @@
     cursor: pointer;
   }
 
+  .sidebar.collapsed .settingUser .userAccount .loginBtn{
+    padding: 5px 10px;
+  }
+  
+  .sidebar.collapsed .settingUser .userAccount .loginBtn label{
+    display: none;
+  }
+  
+
   .sidebar.collapsed .navbar .modeSwitch{
     display: none;
   }
