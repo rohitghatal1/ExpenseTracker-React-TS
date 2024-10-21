@@ -65,6 +65,12 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
         <div className="settingUser">
           <div className="userAccount">
             <button className="loginBtn" title="Login"><i className="fa-solid fa-right-to-bracket"></i><label htmlFor=""> Login</label></button>
+            <div className="loginModal">
+              <h3><i className="fa-regular fa-user"></i> User Login</h3>
+              <form>
+
+              </form>
+            </div>
           </div>
           <div className="modeSwitch">
             <select value={theme} onChange={changeTheme}>
