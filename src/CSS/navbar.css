@@ -87,13 +87,20 @@
     background-color: var(--background-hover);
   }
 
+  .navbar .settingUser .userAccount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .navbar .settingUser .userAccount .loginBtn{
     padding: 10px 20px;
     border-radius: 6px;
-    border: none;
-    background-color: var(--background-hover);
+    border: 1px solid var(--text-color);
+    background-color: var(--primary-hover);
     color: var(--text-color);
     text-align: center;
+    cursor: pointer;
   }
 
   .sidebar.collapsed .navbar .modeSwitch{
