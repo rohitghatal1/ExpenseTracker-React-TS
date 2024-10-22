@@ -147,6 +147,7 @@
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 92px;
   }
 
   .settingUser .userAccount .loginModal .confrmLogin:hover{
@@ -155,7 +156,7 @@
   }
 
   .sidebar.collapsed .navbar .modeSwitch{
-    display: none;
+    opacity: 0;
   }
 
   .navbar .modeSwitch{
