@@ -116,11 +116,26 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 350px;
+    width: 400px;
     border-radius: 10px;
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
     padding: 10px;
+  }
+
+  .settingUser .userAccount .loginModal h3{
+    text-align: center;
+  }
+
+  .settingUser .userAccount .loginModal form{
+    padding: 10px 20px;
+  }
+
+  .settingUser .userAccount .loginModal form input{
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 10px 0;
   }
 
   .sidebar.collapsed .navbar .modeSwitch{
