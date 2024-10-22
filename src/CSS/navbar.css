@@ -111,6 +111,17 @@
     display: none;
   }
   
+  .settingUser .userAccount .loginModal{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 10px;
+  }
 
   .sidebar.collapsed .navbar .modeSwitch{
     display: none;
