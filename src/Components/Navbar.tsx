@@ -75,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
                 <label htmlFor="password">Password:</label>
                 <input type="password" name="upassword" placeholder="Enter your password" />
 
-                <button type="submit">Login</button>
+                <button type="submit" className="confrmLogin">Login</button>
               </form>
             </div>
           </div>

@@ -118,7 +118,7 @@
     transform: translateX(-50%);
     width: 400px;
     border-radius: 10px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-hover);
     color: var(--text-color);
     padding: 10px;
   }
@@ -134,8 +134,24 @@
   .settingUser .userAccount .loginModal form input{
     width: 100%;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 6px;
     margin: 10px 0;
+    border: 1px solid var(--primary-color);
+  }
+
+  .settingUser .userAccount .loginModal .confrmLogin{
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .settingUser .userAccount .loginModal .confrmLogin:hover{
+    transform: scale(1.05);
+    background-color: var(--primary-hover);
   }
 
   .sidebar.collapsed .navbar .modeSwitch{
