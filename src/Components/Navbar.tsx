@@ -68,7 +68,13 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
             <div className="loginModal">
               <h3><i className="fa-regular fa-user"></i> User Login</h3>
               <form>
+                <label htmlFor="username">Username:</label>
+                <input type="text" name="uname" placeholder="Enter your username"/>
 
+                <label htmlFor="password">Password:</label>
+                <input type="password" name="upassword" placeholder="Enter your password" />
+
+                <button type="submit">Login</button>
               </form>
             </div>
           </div>
