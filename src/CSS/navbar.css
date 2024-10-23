@@ -164,6 +164,7 @@
     cursor: pointer;
     transition: color 0.3s ease;
   }
+  
   .settingUser .userAccount .loginModal .closeLoginBtn:hover{
     color: var(--secondary-hover);
   }

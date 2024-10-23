@@ -15,6 +15,16 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCollapsed }) => {
   const [activeLink, setActiveLink] = useState<string>("dashboard");
 
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
+
+  const openLoginModal = () => {
+    setIsLoginOpen(true);
+  }
+
+  const closeLoginModal = () => {
+    setIsLoginOpen(false);
+  }
+
   return (
     <aside className={`sidebar ${isCollapsed? 'collapsed' : ''}`}>
       <nav className="navbar">
@@ -64,11 +74,11 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
 
         <div className="settingUser">
           <div className="userAccount">
-            <button className="loginBtn" title="Login"><i className="fa-solid fa-right-to-bracket"></i><label htmlFor=""> Login</label></button>
+            <button className="loginBtn" title="Login" onClick={openLoginModal}><i className="fa-solid fa-right-to-bracket"></i><label htmlFor=""> Login</label></button>
             
-            <div className="loginModal">
+            {isLoginOpen && <div className="loginModal">
               <h3><i className="fa-regular fa-user"></i> User Login</h3>
-              <span className="closeLoginBtn">&times;</span>
+              <span className="closeLoginBtn" onClick={closeLoginModal}>&times;</span>
               <form>
                 <label htmlFor="username"><i className="fas fa-user"></i> Username:</label>
                 <input type="text" name="uname" placeholder="Enter your username"/>
@@ -78,8 +88,9 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
 
                 <button type="submit" className="confrmLogin"><i className="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
               </form>
-            </div>
+            </div>}
           </div>
+
           <div className="modeSwitch">
             <select value={theme} onChange={changeTheme}>
               <option value="" disabled>Select Theme</option>
