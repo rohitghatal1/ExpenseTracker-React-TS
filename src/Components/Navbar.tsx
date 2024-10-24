@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { NavLink } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../CSS/navbar.css"; // Ensure this CSS file exists and is properly styled
 import trackfund from "../assets/logo/trackfunds.png";
 import tf from "../assets/logo/tf.png"
@@ -25,6 +25,21 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
     setIsLoginOpen(false);
   }
 
+  const location = useLocation();
+  useEffect(()=>{
+    const currentPath = location.pathname;
+    
+    if(currentPath === "/"){
+      setActiveLink("dashboard");
+    }
+    else if(currentPath === "/expenses"){
+      setActiveLink("expenses");
+    }
+    else if(currentPath === "/reports"){
+      setActiveLink("reports");
+    }
+  }, [location.pathname])
+
   return (
     <aside className={`sidebar ${isCollapsed? 'collapsed' : ''}`}>
       <nav className="navbar">
@@ -41,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               className={`navLink ${
                 activeLink === "dashboard" ? "activeLink" : ""
               }`}
-              onClick={() => setActiveLink("dashboard")} title="Dashboard"
+              title="Dashboard"
             >
               <li className="linkItem">
                 <i className="fa-solid fa-table-columns"></i> <label htmlFor="">Dashboard</label>
@@ -52,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               className={`navLink ${
                 activeLink === "expenses" ? "activeLink" : ""
               }`}
-              onClick={() => setActiveLink("expenses")} title="Expenses"
+              title="Expenses"
             >
               <li className="linkItem">
               <i className="fa-solid fa-money-check-dollar"></i> <label htmlFor="">Expenses</label> 
@@ -63,7 +78,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               className={`navLink ${
                 activeLink === "reports" ? "activeLink" : ""
               }`}
-              onClick={() => setActiveLink("reports")} title="Reports"
+              title="Reports"
             >
               <li className="linkItem">
                 <i className="fas fa-file-alt"></i> <label htmlFor="">Reports</label> 
