@@ -41,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               className={`navLink ${
                 activeLink === "dashboard" ? "activeLink" : ""
               }`}
-              onClick={() => setActiveLink("dashboard")}
+              onClick={() => setActiveLink("dashboard")} title="Dashboard"
             >
               <li className="linkItem">
                 <i className="fa-solid fa-table-columns"></i> <label htmlFor="">Dashboard</label>
@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               className={`navLink ${
                 activeLink === "expenses" ? "activeLink" : ""
               }`}
-              onClick={() => setActiveLink("expenses")}
+              onClick={() => setActiveLink("expenses")} title="Expenses"
             >
               <li className="linkItem">
               <i className="fa-solid fa-money-check-dollar"></i> <label htmlFor="">Expenses</label> 
@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               className={`navLink ${
                 activeLink === "reports" ? "activeLink" : ""
               }`}
-              onClick={() => setActiveLink("reports")}
+              onClick={() => setActiveLink("reports")} title="Reports"
             >
               <li className="linkItem">
                 <i className="fas fa-file-alt"></i> <label htmlFor="">Reports</label> 
