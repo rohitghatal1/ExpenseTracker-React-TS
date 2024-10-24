@@ -174,9 +174,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--primary-color);
+    margin-top: 10px;
   }
 
+  .settingUser .userAccount .loginModal .googleLoginOption .googleLogin{
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    font-size: 16px;
+  }
   
   .sidebar.collapsed .navbar .modeSwitch{
     opacity: 0;

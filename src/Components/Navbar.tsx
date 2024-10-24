@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               onClick={() => setActiveLink("expenses")}
             >
               <li className="linkItem">
-                <i className="fas fa-wallet"></i> <label htmlFor="">Expenses</label> 
+              <i className="fa-solid fa-money-check-dollar"></i> <label htmlFor="">Expenses</label> 
               </li>
             </Link>
             <Link
@@ -89,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
                 <button type="submit" className="confrmLogin"><i className="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
               </form>
               <div className="googleLoginOption">
-                <div className="googleLogin"><i className="fa-brands fa-google"></i> Login with Google</div>
+                <span className="googleLogin"><i className="fa-brands fa-google"></i> Login with Google</span>
               </div>
             </div>}
           </div>
