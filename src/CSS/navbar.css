@@ -168,6 +168,16 @@
   .settingUser .userAccount .loginModal .closeLoginBtn:hover{
     color: var(--secondary-hover);
   }
+
+  .settingUser .userAccount .loginModal .googleLoginOption{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+  }
+
+  
   .sidebar.collapsed .navbar .modeSwitch{
     opacity: 0;
   }

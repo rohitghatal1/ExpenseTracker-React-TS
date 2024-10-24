@@ -88,6 +88,9 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
 
                 <button type="submit" className="confrmLogin"><i className="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
               </form>
+              <div className="googleLoginOption">
+                <div className="googleLogin"><i className="fa-brands fa-google"></i> Login with Google</div>
+              </div>
             </div>}
           </div>
 
