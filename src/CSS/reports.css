@@ -9,3 +9,8 @@
     width: 80%;
     transition: all 0.3s ease;
 }
+
+.reportComponent.collapsed{
+    margin-left: 90px;
+    width: 90%;
+}

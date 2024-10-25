@@ -1,10 +1,14 @@
 import React from 'react'
 import '../CSS/reports.css'
 
-const Reports : React.FC = () => {
+interface Props{
+    isCollapsed: boolean;
+}
+
+const Reports : React.FC<Props> = ({isCollapsed}) => {
     return (
         <>
-        <div className="reportComponent">
+        <div className={`reportComponent ${isCollapsed? "collapsed" : ""}`}>
             <div className="reportContainer">
                 <h2>This is Reports Tab</h2>
             </div>

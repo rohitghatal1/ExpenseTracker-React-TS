@@ -34,7 +34,7 @@ const App: React.FC = () => {
     <Routes>
       <Route path="/" element ={<Dashboard isCollapsed={isCollapsed}/>}/> 
       <Route path="/expenses" element={<Expenses isCollapsed={isCollapsed}/>}/>
-      <Route path="/reports" element={<Reports/>} />
+      <Route path="/reports" element={<Reports isCollapsed={isCollapsed}/>} />
     </Routes>
     </>
 
