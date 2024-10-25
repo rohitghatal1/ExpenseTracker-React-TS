@@ -31,15 +31,15 @@
 [data-theme="light"] {
     --body-color: #f7f7f7;
     --body-hover: #F0F0F0;
-    --primary-color: #EAEAEA;
-    --primary-hover: #838388;
+    --primary-color: #222222;
+    --primary-hover: #d6e9f8;
     --secondary-color: #DC3545;
     --secondary-hover: #FF4C39;
     --background-color: #E5F4FD;
     --background-hover: #E5E5E5;
     --update-btn-color: #28a745;
     --update-btn-hover: #218838; 
-    --text-color: #333333;
+    --text-color: #555555;
 }
 
 body{
