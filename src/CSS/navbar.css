@@ -80,7 +80,8 @@
   }
   
   .activeLink {
-    background-color: var(--background-color);
+    background-color: var(--primary-hover);
+    color: var(--update-btn-color);
   }
 
   .activeLink:hover{
