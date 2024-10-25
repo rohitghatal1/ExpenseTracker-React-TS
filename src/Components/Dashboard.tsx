@@ -1,9 +1,12 @@
 import React from 'react'
 import '../CSS/dashboard.css'
 
-const Dashboard:React.FC = () => {
+interface Props{
+    isCollapsed:boolean;
+}
+const Dashboard:React.FC<Props> = ({isCollapsed}) => {
     return(
-        <div className='dashboardComponent'>
+        <div className={`dashboardComponent ${isCollapsed? "collapsed":""}`}>
             <div className="dashboardContainer">
                 <h2>This is Dashboard</h2>
             </div>

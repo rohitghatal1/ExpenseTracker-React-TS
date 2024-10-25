@@ -7,4 +7,10 @@
     padding: 1rem;
     border-radius: 10px;
     margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.dashboardComponent.collapsed{
+    margin-left: 90px;
+    width: 90%;
 }
