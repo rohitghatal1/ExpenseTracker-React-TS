@@ -34,6 +34,13 @@
     color: var(--text-color);
     padding: 10px;
     border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.dashboardComponent .dashboardContainer .dashboardContentsContainer .barChartSection:hover{
+    transform: scale(1.01);
+    box-shadow: -5px -5px 10px rgba(35, 231, 77, 0.7),
+                5px 5px 10px rgba(245, 212, 2, 0.7);
 }
 
 .dashboardComponent .dashboardContainer .dashboardContentsContainer .pieChartSection{
@@ -44,6 +51,13 @@
     padding: 10px;
     border-radius: 6px;
     margin-left: 5rem;
+    transition: all 0.3s ease;
+}
+
+.dashboardComponent .dashboardContainer .dashboardContentsContainer .pieChartSection:hover{
+    transform: scale(1.01);
+    box-shadow: -5px -5px 10px rgba(35, 231, 77, 0.7),
+                5px 5px 10px rgba(245, 212, 2, 0.7);
 }
 
 .dashboardComponent .dashboardContainer .dashboardContentsContainer .pieChartSection h3, .barChartSection h3{
