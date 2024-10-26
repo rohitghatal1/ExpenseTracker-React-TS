@@ -24,5 +24,28 @@
 .dashboardComponent .dashboardContainer .dashboardContentsContainer{
     display: flex;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-start;
 }
+
+.dashboardComponent .dashboardContainer .dashboardContentsContainer .barChartSection{
+    width: 28rem;
+    height: 25rem;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.dashboardComponent .dashboardContainer .dashboardContentsContainer .pieChartSection{
+    width: 32rem;
+    height: 20rem;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 6px;
+    margin-left: 5rem;
+}
+
+.dashboardComponent .dashboardContainer .dashboardContentsContainer .pieChartSection h3, .barChartSection h3{
+    text-align: center;
+} 
