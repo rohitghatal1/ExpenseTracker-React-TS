@@ -14,3 +14,15 @@
     margin-left: 90px;
     width: 90%;
 }
+
+.dashboardComponent .dashboardContainer h2{
+    font-size: 30px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.dashboardComponent .dashboardContainer .dashboardContentsContainer{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}

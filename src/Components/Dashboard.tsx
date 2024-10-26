@@ -11,13 +11,13 @@ const Dashboard:React.FC<Props> = ({isCollapsed}) => {
                 <h2>Dashboard</h2>
                 <div className="dashboardContentsContainer">
                     <section className="barChartSection">
-                        <h2>Bar Chart</h2>
+                        <h3>Bar Chart</h3>
                         <div className="barChart">
 
                         </div>
                     </section>
                     <section className="pieChartSection">
-                        <h2>Pie Chart</h2>
+                        <h3>Pie Chart</h3>
                         <div className="pieChart"></div>
                     </section>
                 </div>
