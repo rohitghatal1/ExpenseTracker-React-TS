@@ -18,6 +18,11 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
     setIsModalOpen(false);
     setIsAddButtonVisible(true);
   };
+
+  const submitExpenseForm = (): void => {
+
+  }
+
   return (
     <div>
       <div className={`expenseComponent ${isCollapsed ? "collapsed": ""}`}>
@@ -29,7 +34,7 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
         <section className="newExpenseSection">
           {isModalOpen && (
             <div className="addExpenseModal">
-              <form className="addExpenseForm">
+              <form className="addExpenseForm" onSubmit={submitExpenseForm}>
                 <div className="formData">
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
@@ -69,7 +74,7 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
                   </div>
                 </div>
                 <div className="confirmCancel">
-                  <button className="submitBtn">
+                  <button className="submitBtn" type="submit">
                     <i className="fas fa-check"></i> Confirm
                   </button>
                   <button className="cancelBtn" onClick={closeAddExpenseModal}>
