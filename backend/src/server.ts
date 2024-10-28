@@ -1,20 +1,29 @@
-import express, { Request, Response } from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
-import exppenseRoutes from './routes/expenses'
+import express, { Request, Response } from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import expenseRoutes from './routes/expenses';
 
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/api", exppenseRoutes);
 
-mongoose.connect(process.env.Mongo_URI || "")
-.then(()=> console.log("MongoDB connected"))
-.catch((err)=> console.error("MongoDB connection error:", err));
+// Database Connection
+mongoose.connect(process.env.MONGO_URI || '')
+.then(() => {
+  console.log('Connected to MongoDB');
+}).catch((error) => {
+  console.error('Database connection error:', error);
+});
 
-app.listen(5000, ()=>{
-    console.log("server running on port 5000");
-})
+// Routes
+app.use('/api/expenses', expenseRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

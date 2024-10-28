@@ -8,6 +8,13 @@ interface NavbarProps{
 const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
+  const [formData, setFormData] = useState({
+    title: '',
+    amount: '',
+    category: '',
+    date: '',
+    notes: ''
+  });
 
   const openNewExpenseModal = (): void => {
     setIsModalOpen(true);
@@ -22,6 +29,11 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
   const submitExpenseForm = (): void => {
 
   }
+
+  const hanldeInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value})
+  };
 
   return (
     <div>
@@ -38,17 +50,17 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
                 <div className="formData">
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
-                    <input type="text" placeholder="Expense description" />
+                    <input type="text" name="title" placeholder="Expense description" onChange={hanldeInputChange} />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
-                    <input type="text" placeholder="Amount" />
+                    <input type="text" name="amount" placeholder="Amount" onChange={hanldeInputChange} />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
-                    <select name="" id="">
+                    <select name="category" onChange={hanldeInputChange}>
                       <option value="">Food</option>
                       <option value="">Drinks</option>
                       <option value="">Fast Food</option>
@@ -61,16 +73,12 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
 
                   <div className="expenseElement">
                     <label htmlFor="date">Expense Date</label>
-                    <input type="date" name="" id="" placeholder="Date" />
+                    <input type="date" name="date" placeholder="Date" onChange={hanldeInputChange} />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="notes">Additonal Note</label>
-                    <textarea
-                      name=""
-                      id=""
-                      placeholder="Addtional notes if any."
-                    ></textarea>
+                    <textarea name="notes" placeholder="Addtional notes if any." onChange={hanldeInputChange}></textarea>
                   </div>
                 </div>
                 <div className="confirmCancel">
