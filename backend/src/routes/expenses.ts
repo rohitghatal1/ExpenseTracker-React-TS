@@ -3,7 +3,7 @@ import Expenses from "../models/Expenses";
 
 const router = Router();
 
-router.post("/expenses", async (req: Request, res: Response) => {
+router.post("/", async (req: Request, res: Response) => {
     try{
         const {title, amount, category, date, notes} = req.body;
 

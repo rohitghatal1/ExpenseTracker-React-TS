@@ -26,13 +26,31 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
     setIsAddButtonVisible(true);
   };
 
-  const submitExpenseForm = (): void => {
-
-  }
 
   const hanldeInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {name, value} = e.target;
     setFormData({...formData, [name]: value})
+  };
+
+  const submitExpenseForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try{
+      const response = await fetch('http://localhost:5000/api/expenses', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify(formData)
+      });
+      if(response.ok){
+        console.log("Expense Added Successfully");
+        closeAddExpenseModal();
+      }
+      else{
+        console.error("Failed to add expense");
+      }
+    } catch(error){
+      console.error("Error: ", error);
+    }
   };
 
   return (
