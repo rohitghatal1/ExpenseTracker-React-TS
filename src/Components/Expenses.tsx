@@ -10,7 +10,7 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
   const [formData, setFormData] = useState({
     title: '',
-    amount: '',
+    amount: 0,
     category: '',
     date: '',
     notes: ''
@@ -34,6 +34,7 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
 
   const submitExpenseForm = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("expense form called");
 
     try{
       const response = await fetch('http://localhost:5000/api/expenses', {
@@ -41,11 +42,14 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify(formData)
       });
+
+      console.log("try completed");
       if(response.ok){
         console.log("Expense Added Successfully");
         closeAddExpenseModal();
       }
       else{
+        const errorResponse = await response.json(); 
         console.error("Failed to add expense");
       }
     } catch(error){
@@ -73,19 +77,19 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
 
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
-                    <input type="text" name="amount" placeholder="Amount" onChange={hanldeInputChange} />
+                    <input type="number" name="amount" placeholder="Amount" onChange={hanldeInputChange} />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
                     <select name="category" onChange={hanldeInputChange}>
-                      <option value="">Food</option>
-                      <option value="">Drinks</option>
-                      <option value="">Fast Food</option>
-                      <option value="">Grocery</option>
-                      <option value="">Stationery</option>
-                      <option value="">Fruits</option>
-                      <option value="">Machinery/Equipment</option>
+                      <option value="Food">Food</option>
+                      <option value="Drinks">Drinks</option>
+                      <option value="Fast Food">Fast Food</option>
+                      <option value="Grocery">Grocery</option>
+                      <option value="Stationery">Stationery</option>
+                      <option value="Fruits">Fruits</option>
+                      <option value="Macheniry/Equipment">Machinery/Equipment</option>
                     </select>
                   </div>
 
