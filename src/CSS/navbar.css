@@ -113,104 +113,104 @@ mix-blend-mode: difference;
   padding: 5px 10px;
 }
 
-  .sidebar.collapsed .settingUser .userAccount .loginBtn label{
-    display: none;
-  }
-  
-  .settingUser .userAccount .loginModal{
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    border-radius: 10px;
-    background-color: var(--primary-hover);
-    color: var(--text-color);
-    padding: 10px;
-  }
+.sidebar.collapsed .settingUser .userAccount .loginBtn label{
+  display: none;
+}
 
-  .settingUser .userAccount .loginModal h3{
-    text-align: center;
-  }
+.settingUser .userAccount .loginModal{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  border-radius: 10px;
+  background-color: var(--primary-hover);
+  color: var(--text-color);
+  padding: 10px;
+}
 
-  .settingUser .userAccount .loginModal form{
-    padding: 10px 20px;
-  }
+.settingUser .userAccount .loginModal h3{
+  text-align: center;
+}
 
-  .settingUser .userAccount .loginModal form input{
-    width: 100%;
-    padding: 8px;
-    border-radius: 6px;
-    margin: 10px 0;
-    border: 1px solid var(--primary-color);
-  }
+.settingUser .userAccount .loginModal form{
+  padding: 10px 20px;
+}
 
-  .settingUser .userAccount .loginModal .confrmLogin{
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 92px;
-  }
+.settingUser .userAccount .loginModal form input{
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  margin: 10px 0;
+  border: 1px solid var(--primary-color);
+}
 
-  .settingUser .userAccount .loginModal .confrmLogin:hover{
-    transform: scale(1.05);
-    background-color: var(--primary-hover);
-  }
+.settingUser .userAccount .loginModal .confrmLogin{
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 92px;
+}
 
-  .settingUser .userAccount .loginModal .closeLoginBtn{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .settingUser .userAccount .loginModal .closeLoginBtn:hover{
-    color: var(--secondary-hover);
-  }
+.settingUser .userAccount .loginModal .confrmLogin:hover{
+  transform: scale(1.05);
+  background-color: var(--primary-hover);
+}
 
-  .settingUser .userAccount .loginModal .googleLoginOption{
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-  }
+.settingUser .userAccount .loginModal .closeLoginBtn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
 
-  .settingUser .userAccount .loginModal .googleLoginOption .googleLogin{
-    padding: 10px 20px;
-    border-radius: 6px;
-    background-color: var(--primary-color);
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .sidebar.collapsed .navbar .modeSwitch{
-    opacity: 0;
-  }
+.settingUser .userAccount .loginModal .closeLoginBtn:hover{
+  color: var(--secondary-hover);
+}
 
-  .navbar .modeSwitch{
-    position: absolute;
-    bottom: 60px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.settingUser .userAccount .loginModal .googleLoginOption{
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 
-  .navbar .modeSwitch select{
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-align: center;
-    border: 1px solid var(--text-color);
-    cursor: pointer;
-  }
+.settingUser .userAccount .loginModal .googleLoginOption .googleLogin{
+  padding: 10px 20px;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sidebar.collapsed .navbar .modeSwitch{
+  opacity: 0;
+}
+
+.navbar .modeSwitch{
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .modeSwitch select{
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid var(--text-color);
+  cursor: pointer;
+}
   
