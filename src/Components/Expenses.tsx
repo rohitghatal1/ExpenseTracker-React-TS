@@ -49,7 +49,6 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
         closeAddExpenseModal();
       }
       else{
-        const errorResponse = await response.json(); 
         console.error("Failed to add expense");
       }
     } catch(error){

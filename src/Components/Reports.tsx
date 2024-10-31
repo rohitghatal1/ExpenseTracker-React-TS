@@ -11,8 +11,10 @@ const Reports : React.FC<Props> = ({isCollapsed}) => {
         <div className={`reportComponent ${isCollapsed? "collapsed" : ""}`}>
             <div className="reportContainer">
                 <div className="report">
-                    <h2>Report Heading</h2>
-                    
+                    <h2>Reports</h2>
+                    <div className="reportDetails">
+                        
+                    </div>
                 </div>
             </div>
         </div>
