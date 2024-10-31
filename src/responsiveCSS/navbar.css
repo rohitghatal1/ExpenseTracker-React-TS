@@ -1,7 +1,7 @@
   /* Responsive styling for tablets */
   @media (max-width: 768px) {
     .sidebar {
-      width: 200px;
+      display: none;
     }
     
     .navLink {
