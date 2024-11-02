@@ -23,4 +23,16 @@ router.post("/", async (req: Request, res: Response) => {
     }
 });
 
+//to fetch data from backend
+
+router.get("/", async (req: Request, res: Response) => {
+    try{
+        const expenses = await Expenses.find();
+        res.status(200).json(expenses);
+    } catch(error){
+        console.error("Error fetching expenses: ", error);
+        res.status(500).json({ error: "Error fetching expenses"})
+    }
+});
+
 export default router;
