@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/expense.css";
 
 interface NavbarProps{
   isCollapsed: boolean;
+}
+
+interface Expense{
+  _id: string;
+  title: string;
+  amount: number;
+  category: string;
+  date: string;
+  notes?: string;
 }
 
 const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
@@ -15,6 +24,23 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
     date: '',
     notes: ''
   });
+
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+
+  //fetch all expenses 
+  useEffect(() => {
+    const fetchExpenses = async () => {
+      try{
+        const response = await fetch('http://localhost:5000/api/expenses');
+        const data = await response.json();
+        setExpenses(data);
+      } catch(error){
+        console.error("Error fetching expenses:", error);
+      }
+    };
+
+    fetchExpenses();
+  }, []);
 
   const openNewExpenseModal = (): void => {
     setIsModalOpen(true);
