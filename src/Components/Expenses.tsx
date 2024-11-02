@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/expense.css";
 
-interface NavbarProps{
+interface NavbarProps {
   isCollapsed: boolean;
 }
 
-interface Expense{
+interface Expense {
   _id: string;
   title: string;
   amount: number;
@@ -14,27 +14,27 @@ interface Expense{
   notes?: string;
 }
 
-const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
+const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
   const [formData, setFormData] = useState({
-    title: '',
+    title: "",
     amount: 0,
-    category: '',
-    date: '',
-    notes: ''
+    category: "",
+    date: "",
+    notes: "",
   });
 
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
-  //fetch all expenses 
+  //fetch all expenses
   useEffect(() => {
     const fetchExpenses = async () => {
-      try{
-        const response = await fetch('http://localhost:5000/api/expenses');
+      try {
+        const response = await fetch("http://localhost:5000/api/expenses");
         const data = await response.json();
         setExpenses(data);
-      } catch(error){
+      } catch (error) {
         console.error("Error fetching expenses:", error);
       }
     };
@@ -52,39 +52,41 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
     setIsAddButtonVisible(true);
   };
 
-
-  const hanldeInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const {name, value} = e.target;
-    setFormData({...formData, [name]: value})
+  const hanldeInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const submitExpenseForm = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("expense form called");
 
-    try{
-      const response = await fetch('http://localhost:5000/api/expenses', {
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify(formData)
+    try {
+      const response = await fetch("http://localhost:5000/api/expenses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       console.log("try completed");
-      if(response.ok){
+      if (response.ok) {
         console.log("Expense Added Successfully");
         closeAddExpenseModal();
-      }
-      else{
+      } else {
         console.error("Failed to add expense");
       }
-    } catch(error){
+    } catch (error) {
       console.error("Error: ", error);
     }
   };
 
   return (
     <div>
-      <div className={`expenseComponent ${isCollapsed ? "collapsed": ""}`}>
+      <div className={`expenseComponent ${isCollapsed ? "collapsed" : ""}`}>
         <div className="expenseHeading">
           <h2>Expenses</h2>
           <span>Rs 28500</span>
@@ -97,12 +99,22 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
                 <div className="formData">
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" placeholder="Expense description" onChange={hanldeInputChange} />
+                    <input
+                      type="text"
+                      name="title"
+                      placeholder="Expense description"
+                      onChange={hanldeInputChange}
+                    />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
-                    <input type="number" name="amount" placeholder="Amount" onChange={hanldeInputChange} />
+                    <input
+                      type="number"
+                      name="amount"
+                      placeholder="Amount"
+                      onChange={hanldeInputChange}
+                    />
                   </div>
 
                   <div className="expenseElement">
@@ -114,18 +126,29 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
                       <option value="Grocery">Grocery</option>
                       <option value="Stationery">Stationery</option>
                       <option value="Fruits">Fruits</option>
-                      <option value="Macheniry/Equipment">Machinery/Equipment</option>
+                      <option value="Macheniry/Equipment">
+                        Machinery/Equipment
+                      </option>
                     </select>
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="date">Expense Date</label>
-                    <input type="date" name="date" placeholder="Date" onChange={hanldeInputChange} />
+                    <input
+                      type="date"
+                      name="date"
+                      placeholder="Date"
+                      onChange={hanldeInputChange}
+                    />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="notes">Additonal Note</label>
-                    <textarea name="notes" placeholder="Addtional notes if any." onChange={hanldeInputChange}></textarea>
+                    <textarea
+                      name="notes"
+                      placeholder="Addtional notes if any."
+                      onChange={hanldeInputChange}
+                    ></textarea>
                   </div>
                 </div>
                 <div className="confirmCancel">
@@ -148,27 +171,31 @@ const Expenses: React.FC<NavbarProps> = ({isCollapsed}) => {
             </div>
           )}
         </section>
+
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
-            <div className="expenseItem">
-              <div className="expenseDetails">
-                <div className="expenseNameCat">
-                  <span className="expenseName">Chaumin</span><br />
-                  <span className="category">(Food)</span>
+            {expenses.map((expense) => (
+              <div className="expenseItem" key={expense._id}>
+                <div className="expenseDetails">
+                  <div className="expenseNameCat">
+                    <span className="expenseName">{expense.title}</span>
+                    <br />
+                    <span className="category">({expense.category})</span>
+                  </div>
+                  <div className="expenseAmount">
+                    <span>Rs {expense.amount}</span>
+                  </div>
                 </div>
-                <div className="expenseAmount">
-                  <span>Rs 60</span>
+                <div className="deleteUpdateExpense">
+                  <button className="updateBtn">
+                    <i className="fas fa-edit"></i> Update
+                  </button>
+                  <button className="deleteBtn">
+                    <i className="fa-solid fa-trash"></i> Delete
+                  </button>
                 </div>
               </div>
-              <div className="deleteUpdateExpense">
-                <button className="updateBtn">
-                  <i className="fas fa-edit"></i> Update
-                </button>
-                <button className="deleteBtn">
-                  <i className="fa-solid fa-trash"></i> Delete
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
