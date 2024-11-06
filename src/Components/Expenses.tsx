@@ -94,6 +94,27 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     }
   };
 
+  const deleteExpense = async (id: string) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this expense?");
+    if(!confirmDelete) return;
+
+    try{
+      const response = await fetch(`http://localhost:5000/api/expenses/${id}`,{
+        method: "DELETE",
+      });
+
+      if(response.ok){
+        setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense._id !== id));
+        console.log('Expense deleted successfully');
+      }
+      else{
+        console.error('Failed to delete expense');
+      }
+    } catch(error){
+      console.error("Error deleting expense:", error);
+    }
+  };
+  
   return (
     <div>
       <div className={`expenseComponent ${isCollapsed ? "collapsed" : ""}`}>
@@ -197,14 +218,17 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       <span>Rs {expense.amount}</span>
                     </div>
                   </div>
+
                   <div className="deleteUpdateExpense">
                     <button className="updateBtn">
                       <i className="fas fa-edit"></i> Update
                     </button>
-                    <button className="deleteBtn">
+
+                    <button className="deleteBtn" onClick={()=> deleteExpense(expense._id)}>
                       <i className="fa-solid fa-trash"></i> Delete
                     </button>
                   </div>
+
                 </div>
               ))}
           </div>
