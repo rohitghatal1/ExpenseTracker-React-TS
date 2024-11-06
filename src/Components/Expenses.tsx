@@ -15,8 +15,10 @@ interface Expense {
 }
 
 const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
+
   const [formData, setFormData] = useState({
     title: "",
     amount: 0,
@@ -114,7 +116,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       console.error("Error deleting expense:", error);
     }
   };
-  
+
   return (
     <div>
       <div className={`expenseComponent ${isCollapsed ? "collapsed" : ""}`}>
@@ -182,6 +184,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                     ></textarea>
                   </div>
                 </div>
+                
                 <div className="confirmCancel">
                   <button className="submitBtn" type="submit">
                     <i className="fas fa-check"></i> Confirm
