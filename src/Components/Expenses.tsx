@@ -63,7 +63,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
   const submitExpenseForm = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("expense form called");
 
     try {
       const response = await fetch("http://localhost:5000/api/expenses", {
@@ -72,10 +71,21 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         body: JSON.stringify(formData),
       });
 
-      console.log("try completed");
       if (response.ok) {
+        const newExpense = await response.json();
+        
+        setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
         console.log("Expense Added Successfully");
+
         closeAddExpenseModal();
+
+        setFormData({
+          title: '',
+          amount: 0,
+          category: '',
+          date: '',
+          notes: '',
+        })
       } else {
         console.error("Failed to add expense");
       }
@@ -174,28 +184,29 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
-            {expenses.map((expense) => (
-              <div className="expenseItem" key={expense._id}>
-                <div className="expenseDetails">
-                  <div className="expenseNameCat">
-                    <span className="expenseName">{expense.title}</span>
-                    <br />
-                    <span className="category">({expense.category})</span>
+            {Array.isArray(expenses) &&
+              expenses.map((expense) => (
+                <div className="expenseItem" key={expense._id}>
+                  <div className="expenseDetails">
+                    <div className="expenseNameCat">
+                      <span className="expenseName">{expense.title}</span>
+                      <br />
+                      <span className="category">({expense.category})</span>
+                    </div>
+                    <div className="expenseAmount">
+                      <span>Rs {expense.amount}</span>
+                    </div>
                   </div>
-                  <div className="expenseAmount">
-                    <span>Rs {expense.amount}</span>
+                  <div className="deleteUpdateExpense">
+                    <button className="updateBtn">
+                      <i className="fas fa-edit"></i> Update
+                    </button>
+                    <button className="deleteBtn">
+                      <i className="fa-solid fa-trash"></i> Delete
+                    </button>
                   </div>
                 </div>
-                <div className="deleteUpdateExpense">
-                  <button className="updateBtn">
-                    <i className="fas fa-edit"></i> Update
-                  </button>
-                  <button className="deleteBtn">
-                    <i className="fa-solid fa-trash"></i> Delete
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>

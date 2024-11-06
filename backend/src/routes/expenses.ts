@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import Expenses from "../models/Expenses"; // Verify this path
+import Expenses from "../models/Expenses";
 
 const router = Router();
 
