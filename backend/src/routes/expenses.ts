@@ -35,4 +35,22 @@ router.get("/", async (req: Request, res: Response) => {
     }
 });
 
+// to deletre data from database 
+router.delete("/:id", async (req: Request, res: Response) => {
+    try{
+        const {id} = req.params;
+        const deletExpense = await Expenses.findByIdAndDelete(id);
+
+        if(deletExpense){
+            res.status(200).json({message: "Expenses deleted successfully!!!"});
+        }
+        else{
+            res.status(400).json({error: "Exense not found"});
+        }
+    } catch(err){
+        console.log("Error deleting expense", err);
+        res.status(500).json({error: "Error deleting expsnes"});
+    }
+})
+
 export default router;
