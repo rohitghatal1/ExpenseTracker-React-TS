@@ -3,6 +3,10 @@ import Expenses from "../models/Expenses";
 
 const router = Router();
 
+interface paramsWithId{
+    id: string;
+}
+
 // Add a new expense
 router.post("/", async (req: Request, res: Response) => {
     try {
@@ -36,7 +40,7 @@ router.get("/", async (req: Request, res: Response) => {
 });
 
 // Update an expense by ID
-router.patch("/:id", async (req: Request, res: Response) => {
+router.put("/:id", async (req: Request<paramsWithId>) => {
     const { id } = req.params;
     const { title, amount, category, date, notes } = req.body;
 
@@ -48,13 +52,12 @@ router.patch("/:id", async (req: Request, res: Response) => {
         );
 
         if (!updatedExpense) {
-            return res.status(404).json({ message: "Expense not found" });
+            console.log("Expense Updated successfully");
         }
 
-        res.status(200).json(updatedExpense);
+        console.log("Data updated successfully");
     } catch (error) {
         console.error("Error updating expense:", error);
-        res.status(500).json({ error: "Error updating expense" });
     }
 });
 

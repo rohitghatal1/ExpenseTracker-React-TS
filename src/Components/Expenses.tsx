@@ -157,6 +157,10 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       console.error("Error deleting expense:", error);
     }
   };
+  const convertIsoToDateString = (isoString: string) => {
+    const date = new Date(isoString);
+    return date.toISOString().split('T')[0];
+};
 
   return (
     <div>
@@ -177,6 +181,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       type="text"
                       name="title"
                       placeholder="Expense description"
+                      value={formData.title}
                       onChange={hanldeInputChange}
                     />
                   </div>
@@ -187,13 +192,14 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       type="number"
                       name="amount"
                       placeholder="Amount"
+                      value={formData.amount}
                       onChange={hanldeInputChange}
                     />
                   </div>
 
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
-                    <select name="category" onChange={hanldeInputChange}>
+                    <select name="category" value={formData.category} onChange={hanldeInputChange}>
                       <option value="Food">Food</option>
                       <option value="Drinks">Drinks</option>
                       <option value="Fast Food">Fast Food</option>
@@ -212,6 +218,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       type="date"
                       name="date"
                       placeholder="Date"
+                      value={convertIsoToDateString(formData.date)}
                       onChange={hanldeInputChange}
                     />
                   </div>
@@ -221,6 +228,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                     <textarea
                       name="notes"
                       placeholder="Addtional notes if any."
+                      value={formData.notes}
                       onChange={hanldeInputChange}
                     ></textarea>
                   </div>
