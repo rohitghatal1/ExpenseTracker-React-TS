@@ -107,10 +107,11 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         // const newExpense = await response.json();
 
         setExpenses((prevExpenses) => {
-          if(editingExpense){
+          if (editingExpense) {
             //update epense in list
-            return prevExpenses.map((exp) => 
-            exp._id === editingExpense._id ? updatedExpense : exp);
+            return prevExpenses.map((exp) =>
+              exp._id === editingExpense._id ? updatedExpense : exp
+            );
           } else {
             return [...prevExpenses, updatedExpense];
           }
@@ -127,7 +128,9 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           notes: "",
         });
       } else {
-        console.error(editingExpense ? "Failed to update expense" : "Failed to add pense");
+        console.error(
+          editingExpense ? "Failed to update expense" : "Failed to add pense"
+        );
       }
     } catch (error) {
       console.error("Error: ", error);
@@ -157,10 +160,13 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       console.error("Error deleting expense:", error);
     }
   };
+
   const convertIsoToDateString = (isoString: string) => {
+    if (!isoString) return ""; // Return empty string if no date is provided
     const date = new Date(isoString);
-    return date.toISOString().split('T')[0];
-};
+    if (isNaN(date.getTime())) return ""; // Return empty string if date is invalid
+    return date.toISOString().split("T")[0]; // Convert to yyyy-mm-dd format
+  };
 
   return (
     <div>
@@ -199,7 +205,11 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
-                    <select name="category" value={formData.category} onChange={hanldeInputChange}>
+                    <select
+                      name="category"
+                      value={formData.category}
+                      onChange={hanldeInputChange}
+                    >
                       <option value="Food">Food</option>
                       <option value="Drinks">Drinks</option>
                       <option value="Fast Food">Fast Food</option>
@@ -272,7 +282,10 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   </div>
 
                   <div className="deleteUpdateExpense">
-                    <button className="updateBtn" onClick={() => openUpdateExpenseModal(expense)}>
+                    <button
+                      className="updateBtn"
+                      onClick={() => openUpdateExpenseModal(expense)}
+                    >
                       <i className="fas fa-edit"></i> Update
                     </button>
 
