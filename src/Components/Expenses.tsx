@@ -86,7 +86,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       if (editingExpense) {
         //update existing expense
         response = await fetch(
-          `http://localhost:500/api/expenses/${editingExpense._id}`,
+          `http://localhost:5000/api/expenses/${editingExpense._id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -103,9 +103,18 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       }
 
       if (response.ok) {
-        const newExpense = await response.json();
+        const updatedExpense = await response.json();
+        // const newExpense = await response.json();
 
-        setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
+        setExpenses((prevExpenses) => {
+          if(editingExpense){
+            //update epense in list
+            return prevExpenses.map((exp) => 
+            exp._id === editingExpense._id ? updatedExpense : exp);
+          } else {
+            return [...prevExpenses, updatedExpense];
+          }
+        });
         console.log("Expense Added Successfully");
 
         closeAddExpenseModal();
@@ -118,7 +127,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           notes: "",
         });
       } else {
-        console.error("Failed to add expense");
+        console.error(editingExpense ? "Failed to update expense" : "Failed to add pense");
       }
     } catch (error) {
       console.error("Error: ", error);
@@ -255,7 +264,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   </div>
 
                   <div className="deleteUpdateExpense">
-                    <button className="updateBtn">
+                    <button className="updateBtn" onClick={() => openUpdateExpenseModal(expense)}>
                       <i className="fas fa-edit"></i> Update
                     </button>
 
