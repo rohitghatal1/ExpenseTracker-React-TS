@@ -15,9 +15,9 @@ interface Expense {
 }
 
 const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
-
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
+  const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -45,6 +45,21 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   }, []);
 
   const openNewExpenseModal = (): void => {
+    setFormData({ title: "", amount: 0, category: "", date: "", notes: "" });
+    setEditingExpense(null);
+    setIsModalOpen(true);
+    setIsAddButtonVisible(false);
+  };
+
+  const openUpdateExpenseModal = (expense: Expense): void => {
+    setFormData({
+      title: expense.title,
+      amount: expense.amount,
+      category: expense.category,
+      date: expense.date,
+      notes: expense.notes || "",
+    });
+    setEditingExpense(expense);
     setIsModalOpen(true);
     setIsAddButtonVisible(false);
   };
@@ -67,27 +82,41 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/expenses", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      let response;
+      if (editingExpense) {
+        //update existing expense
+        response = await fetch(
+          `http://localhost:500/api/expenses/${editingExpense._id}`,
+          {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          }
+        );
+      } else {
+        //add new expense
+        response = await fetch("http://localhost:5000/api/expenses", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+      }
 
       if (response.ok) {
         const newExpense = await response.json();
-        
+
         setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
         console.log("Expense Added Successfully");
 
         closeAddExpenseModal();
 
         setFormData({
-          title: '',
+          title: "",
           amount: 0,
-          category: '',
-          date: '',
-          notes: '',
-        })
+          category: "",
+          date: "",
+          notes: "",
+        });
       } else {
         console.error("Failed to add expense");
       }
@@ -97,22 +126,25 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   };
 
   const deleteExpense = async (id: string) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this expense?");
-    if(!confirmDelete) return;
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this expense?"
+    );
+    if (!confirmDelete) return;
 
-    try{
-      const response = await fetch(`http://localhost:5000/api/expenses/${id}`,{
+    try {
+      const response = await fetch(`http://localhost:5000/api/expenses/${id}`, {
         method: "DELETE",
       });
 
-      if(response.ok){
-        setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense._id !== id));
-        console.log('Expense deleted successfully');
+      if (response.ok) {
+        setExpenses((prevExpenses) =>
+          prevExpenses.filter((expense) => expense._id !== id)
+        );
+        console.log("Expense deleted successfully");
+      } else {
+        console.error("Failed to delete expense");
       }
-      else{
-        console.error('Failed to delete expense');
-      }
-    } catch(error){
+    } catch (error) {
       console.error("Error deleting expense:", error);
     }
   };
@@ -184,7 +216,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                     ></textarea>
                   </div>
                 </div>
-                
+
                 <div className="confirmCancel">
                   <button className="submitBtn" type="submit">
                     <i className="fas fa-check"></i> Confirm
@@ -227,11 +259,13 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       <i className="fas fa-edit"></i> Update
                     </button>
 
-                    <button className="deleteBtn" onClick={()=> deleteExpense(expense._id)}>
+                    <button
+                      className="deleteBtn"
+                      onClick={() => deleteExpense(expense._id)}
+                    >
                       <i className="fa-solid fa-trash"></i> Delete
                     </button>
                   </div>
-
                 </div>
               ))}
           </div>
