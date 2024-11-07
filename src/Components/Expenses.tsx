@@ -29,6 +29,8 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
+  //to calculate total expense
+  const totalExpense = expenses.reduce((total, expense)=> total + expense.amount, 0)
   //fetch all expenses
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -104,7 +106,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
       if (response.ok) {
         const updatedExpense = await response.json();
-        // const newExpense = await response.json();
 
         setExpenses((prevExpenses) => {
           if (editingExpense) {
@@ -129,7 +130,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         });
       } else {
         console.error(
-          editingExpense ? "Failed to update expense" : "Failed to add pense"
+          editingExpense ? "Failed to update expense" : "Failed to add expense"
         );
       }
     } catch (error) {
@@ -173,7 +174,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       <div className={`expenseComponent ${isCollapsed ? "collapsed" : ""}`}>
         <div className="expenseHeading">
           <h2>Expenses</h2>
-          <span>Rs 28500</span>
+          <span>RS {totalExpense}</span>
         </div>
 
         <section className="newExpenseSection">
