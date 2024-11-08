@@ -40,7 +40,7 @@ router.get("/", async (req: Request, res: Response) => {
 });
 
 // Update an expense by ID
-router.put("/:id", async (req: Request<paramsWithId>) => {
+router.put("/:id", async (req: Request<paramsWithId>, res:Response) => {
     const { id } = req.params;
     const { title, amount, category, date, notes } = req.body;
 
@@ -56,6 +56,7 @@ router.put("/:id", async (req: Request<paramsWithId>) => {
         }
 
         console.log("Data updated successfully");
+        res.status(200)
     } catch (error) {
         console.error("Error updating expense:", error);
     }
