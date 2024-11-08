@@ -141,6 +141,12 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem:hover{
     transform: scale(1.01);
     filter: brightness(1.2);

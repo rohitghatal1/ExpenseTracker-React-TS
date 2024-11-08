@@ -56,7 +56,7 @@ router.put("/:id", async (req: Request<paramsWithId>, res:Response) => {
         }
 
         console.log("Data updated successfully");
-        res.status(200)
+        res.status(200).json(updatedExpense);
     } catch (error) {
         console.error("Error updating expense:", error);
     }
