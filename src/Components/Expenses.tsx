@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/expense.css";
 
+import { submitExpenseForm, deleteExpense } from "./services/CRUD";
+
 interface NavbarProps {
   isCollapsed: boolean;
 }
 
+// Defining the Expense interface to ensure all expenses are of the same type
 interface Expense {
   _id: string;
+  title: string;
+  amount: number;
+  category: string;
+  date: string;
+  notes?: string;
+}
+
+interface FormData {
   title: string;
   amount: number;
   category: string;
@@ -19,7 +30,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     title: "",
     amount: 0,
     category: "",
@@ -29,9 +40,10 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
-  //to calculate total expense
-  const totalExpense = expenses.reduce((total, expense)=> total + expense.amount, 0)
-  //fetch all expenses
+  // Calculate total expense
+  const totalExpense = expenses.reduce((total, expense) => total + expense.amount, 0);
+
+  // Fetch all expenses on component mount
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
@@ -71,7 +83,8 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     setIsAddButtonVisible(true);
   };
 
-  const hanldeInputChange = (
+  // Corrected function name typo from `hanldeInputChange` to `handleInputChange`
+  const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
@@ -80,93 +93,19 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const submitExpenseForm = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      let response;
-      if (editingExpense) {
-        //update existing expense
-        response = await fetch(
-          `http://localhost:5000/api/expenses/${editingExpense._id}`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-          }
-        );
-      } else {
-        //add new expense
-        response = await fetch("http://localhost:5000/api/expenses", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-      }
-
-      if (response.ok) {
-        const updatedExpense = await response.json();
-
-        setExpenses((prevExpenses) => {
-          if (editingExpense) {
-            //update epense in list
-            return prevExpenses.map((exp) =>
-              exp._id === editingExpense._id ? updatedExpense : exp
-            );
-          } else {
-            return [...prevExpenses, updatedExpense];
-          }
-        });
-        console.log("Expense Added Successfully");
-
-        closeAddExpenseModal();
-
-        setFormData({
-          title: "",
-          amount: 0,
-          category: "",
-          date: "",
-          notes: "",
-        });
-      } else {
-        console.error(
-          editingExpense ? "Failed to update expense" : "Failed to add expense"
-        );
-      }
-    } catch (error) {
-      console.error("Error: ", error);
-    }
+  const handleSubmit = (e: React.FormEvent) => {
+    submitExpenseForm(e, formData, editingExpense, setExpenses, closeAddExpenseModal, setFormData);
   };
 
-  const deleteExpense = async (id: string) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this expense?"
-    );
-    if (!confirmDelete) return;
-
-    try {
-      const response = await fetch(`http://localhost:5000/api/expenses/${id}`, {
-        method: "DELETE",
-      });
-
-      if (response.ok) {
-        setExpenses((prevExpenses) =>
-          prevExpenses.filter((expense) => expense._id !== id)
-        );
-        console.log("Expense deleted successfully");
-      } else {
-        console.error("Failed to delete expense");
-      }
-    } catch (error) {
-      console.error("Error deleting expense:", error);
-    }
+  const handleDelete = (id: string) => {
+    deleteExpense(id, setExpenses);
   };
 
   const convertIsoToDateString = (isoString: string) => {
-    if (!isoString) return ""; // Return empty string if no date is provided
+    if (!isoString) return "";
     const date = new Date(isoString);
-    if (isNaN(date.getTime())) return ""; // Return empty string if date is invalid
-    return date.toISOString().split("T")[0]; // Convert to yyyy-mm-dd format
+    if (isNaN(date.getTime())) return "";
+    return date.toISOString().split("T")[0];
   };
 
   return (
@@ -174,14 +113,16 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       <div className={`expenseComponent ${isCollapsed ? "collapsed" : ""}`}>
         <div className="expenseHeading">
           <h2>Expenses</h2>
-          <span>RS {totalExpense}</span>
+          <span>Total: RS {totalExpense}</span>
         </div>
 
         <section className="newExpenseSection">
           {isModalOpen && (
             <div className="addExpenseModal">
-              <form className="addExpenseForm" onSubmit={submitExpenseForm}>
+              <form className="addExpenseForm" onSubmit={handleSubmit}>
+                {/* Form fields */}
                 <div className="formData">
+                  {/* Title */}
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
                     <input
@@ -189,10 +130,10 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       name="title"
                       placeholder="Expense description"
                       value={formData.title}
-                      onChange={hanldeInputChange}
+                      onChange={handleInputChange}
                     />
                   </div>
-
+                  {/* Amount */}
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
                     <input
@@ -200,16 +141,16 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       name="amount"
                       placeholder="Amount"
                       value={formData.amount}
-                      onChange={hanldeInputChange}
+                      onChange={handleInputChange}
                     />
                   </div>
-
+                  {/* Category */}
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
                     <select
                       name="category"
                       value={formData.category}
-                      onChange={hanldeInputChange}
+                      onChange={handleInputChange}
                     >
                       <option value="Food">Food</option>
                       <option value="Drinks">Drinks</option>
@@ -217,12 +158,12 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       <option value="Grocery">Grocery</option>
                       <option value="Stationery">Stationery</option>
                       <option value="Fruits">Fruits</option>
-                      <option value="Macheniry/Equipment">
+                      <option value="Machinery/Equipment">
                         Machinery/Equipment
                       </option>
                     </select>
                   </div>
-
+                  {/* Date */}
                   <div className="expenseElement">
                     <label htmlFor="date">Expense Date</label>
                     <input
@@ -230,21 +171,22 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       name="date"
                       placeholder="Date"
                       value={convertIsoToDateString(formData.date)}
-                      onChange={hanldeInputChange}
+                      onChange={handleInputChange}
                     />
                   </div>
-
+                  {/* Notes */}
                   <div className="expenseElement">
-                    <label htmlFor="notes">Additonal Note</label>
+                    <label htmlFor="notes">Additional Note</label>
                     <textarea
                       name="notes"
-                      placeholder="Addtional notes if any."
+                      placeholder="Additional notes if any."
                       value={formData.notes}
-                      onChange={hanldeInputChange}
+                      onChange={handleInputChange}
                     ></textarea>
                   </div>
                 </div>
 
+                {/* Confirm and Cancel buttons */}
                 <div className="confirmCancel">
                   <button className="submitBtn" type="submit">
                     <i className="fas fa-check"></i> Confirm
@@ -257,6 +199,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
             </div>
           )}
 
+          {/* Add new expense button */}
           {isAddButtonVisible && (
             <div className="addNewExpense">
               <button className="addExpensebtn" onClick={openNewExpenseModal}>
@@ -266,6 +209,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           )}
         </section>
 
+        {/* Expense items display */}
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
             {Array.isArray(expenses) &&
@@ -292,7 +236,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
                     <button
                       className="deleteBtn"
-                      onClick={() => deleteExpense(expense._id)}
+                      onClick={() => handleDelete(expense._id)}
                     >
                       <i className="fa-solid fa-trash"></i> Delete
                     </button>
