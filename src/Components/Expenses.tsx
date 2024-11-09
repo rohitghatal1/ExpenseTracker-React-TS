@@ -329,32 +329,35 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
               <div>
                 <h4>older</h4>
                 {olderExpenses.map((expense) => (
-                  <div className="expenseItem" key={expense._id}>
-                    <div className="expenseDetails">
-                      <div className="expenseNameCat">
-                        <span className="expenseName">{expense.title}</span>
-                        <br />
-                        <span className="category">({expense.category})</span>
+                  <div>
+                    <h4>{getFormattedDate(expense.date)}</h4>
+                    <div className="expenseItem" key={expense._id}>
+                      <div className="expenseDetails">
+                        <div className="expenseNameCat">
+                          <span className="expenseName">{expense.title}</span>
+                          <br />
+                          <span className="category">({expense.category})</span>
+                        </div>
+                        <div className="expenseAmount">
+                          <span>Rs {expense.amount}</span>
+                        </div>
                       </div>
-                      <div className="expenseAmount">
-                        <span>Rs {expense.amount}</span>
+
+                      <div className="deleteUpdateExpense">
+                        <button
+                          className="updateBtn"
+                          onClick={() => openUpdateExpenseModal(expense)}
+                        >
+                          <i className="fas fa-edit"></i> Update
+                        </button>
+
+                        <button
+                          className="deleteBtn"
+                          onClick={() => handleDelete(expense._id)}
+                        >
+                          <i className="fa-solid fa-trash"></i> Delete
+                        </button>
                       </div>
-                    </div>
-
-                    <div className="deleteUpdateExpense">
-                      <button
-                        className="updateBtn"
-                        onClick={() => openUpdateExpenseModal(expense)}
-                      >
-                        <i className="fas fa-edit"></i> Update
-                      </button>
-
-                      <button
-                        className="deleteBtn"
-                        onClick={() => handleDelete(expense._id)}
-                      >
-                        <i className="fa-solid fa-trash"></i> Delete
-                      </button>
                     </div>
                   </div>
                 ))}
