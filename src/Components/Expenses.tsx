@@ -133,14 +133,21 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     }
   };
 
-  const groupedExpenses = expenses.reduce((groups, expense) => {
-    const dateKey = getFormattedDate(expense.date);
-    if (!groups[dateKey]) {
-      groups[dateKey] = [];
+  const todayExpense: Expense[] = [];
+  const yesterdayExpense: Expense[] = [];
+  const olderExpenses: Expense[] = [];
+
+  expenses.forEach((expense) => {
+    const formattedDate = getFormattedDate(expense.date);
+
+    if (formattedDate === "Today") {
+      todayExpense.push(expense);
+    } else if (formattedDate === "Yesterday") {
+      yesterdayExpense.push(expense);
+    } else {
+      olderExpenses.push(expense);
     }
-    groups[dateKey].push(expense);
-    return groups;
-  }, {} as Record<string, Expense[]>);
+  });
 
   return (
     <div>
@@ -246,10 +253,10 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         {/* Expense items display */}
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
-            {Object.keys(groupedExpenses).map((dateGroup) => (
-              <div key={dateGroup}>
-                <h4>{dateGroup}</h4>
-                {groupedExpenses[dateGroup].map((expense) => (
+            {todayExpense.length > 0 && (
+              <div>
+                <h4>Today</h4>
+                {todayExpense.map((expense) => (
                   <div className="expenseItem" key={expense._id}>
                     <div className="expenseDetails">
                       <div className="expenseNameCat">
@@ -280,7 +287,79 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   </div>
                 ))}
               </div>
-            ))}
+            )}
+
+            {yesterdayExpense.length > 0 && (
+              <div>
+                <h4>Yesterday</h4>
+                {yesterdayExpense.map((expense) => (
+                  <div className="expenseItem" key={expense._id}>
+                    <div className="expenseDetails">
+                      <div className="expenseNameCat">
+                        <span className="expenseName">{expense.title}</span>
+                        <br />
+                        <span className="category">({expense.category})</span>
+                      </div>
+                      <div className="expenseAmount">
+                        <span>Rs {expense.amount}</span>
+                      </div>
+                    </div>
+
+                    <div className="deleteUpdateExpense">
+                      <button
+                        className="updateBtn"
+                        onClick={() => openUpdateExpenseModal(expense)}
+                      >
+                        <i className="fas fa-edit"></i> Update
+                      </button>
+
+                      <button
+                        className="deleteBtn"
+                        onClick={() => handleDelete(expense._id)}
+                      >
+                        <i className="fa-solid fa-trash"></i> Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {olderExpenses.length > 0 && (
+              <div>
+                <h4>older</h4>
+                {olderExpenses.map((expense) => (
+                  <div className="expenseItem" key={expense._id}>
+                    <div className="expenseDetails">
+                      <div className="expenseNameCat">
+                        <span className="expenseName">{expense.title}</span>
+                        <br />
+                        <span className="category">({expense.category})</span>
+                      </div>
+                      <div className="expenseAmount">
+                        <span>Rs {expense.amount}</span>
+                      </div>
+                    </div>
+
+                    <div className="deleteUpdateExpense">
+                      <button
+                        className="updateBtn"
+                        onClick={() => openUpdateExpenseModal(expense)}
+                      >
+                        <i className="fas fa-edit"></i> Update
+                      </button>
+
+                      <button
+                        className="deleteBtn"
+                        onClick={() => handleDelete(expense._id)}
+                      >
+                        <i className="fa-solid fa-trash"></i> Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
