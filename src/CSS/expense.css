@@ -152,11 +152,6 @@ input[type="number"]::-webkit-inner-spin-button{
     filter: brightness(1.2);
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem:not(:hover){
-    filter: brightness(0.8);
-    transform: scale(0.95);
-}
-
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails{
     width: 80%;
     padding: 1rem;

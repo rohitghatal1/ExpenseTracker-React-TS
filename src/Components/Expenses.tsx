@@ -248,7 +248,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           <div className="expenseItemsContainer">
             {Object.keys(groupedExpenses).map((dateGroup) => (
               <div key={dateGroup}>
-                <h3>{dateGroup}</h3>
+                <h4>{dateGroup}</h4>
                 {groupedExpenses[dateGroup].map((expense) => (
                   <div className="expenseItem" key={expense._id}>
                     <div className="expenseDetails">
