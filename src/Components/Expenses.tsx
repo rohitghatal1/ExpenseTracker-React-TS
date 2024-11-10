@@ -86,7 +86,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     setIsAddButtonVisible(true);
   };
 
-  // Corrected function name typo from `hanldeInputChange` to `handleInputChange`
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -250,7 +249,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           )}
         </section>
 
-        {/* Expense items display */}
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
             {todayExpense.length > 0 && (
@@ -327,7 +325,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
 
             {olderExpenses.length > 0 && (
               <div>
-                <h4>older</h4>
                 {olderExpenses.map((expense) => (
                   <div>
                     <h4>{getFormattedDate(expense.date)}</h4>

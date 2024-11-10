@@ -129,6 +129,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 10px;
+    /* border: 1px solid var(--text-color); */
 }
 
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem{
@@ -136,9 +137,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 5px;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, filter 0.3s ease;
+    border: 1px solid var(--text-color);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -158,7 +160,7 @@ input[type="number"]::-webkit-inner-spin-button{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--primary-color);
+    /* border: 1px solid var(--primary-color); */
 }
 
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails .expenseNameCat .expenseName{
