@@ -252,7 +252,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         <div className="expenseContainer">
           <div className="expenseItemsContainer">
             {todayExpense.length > 0 && (
-              <div>
+              <div className="expenseByDate">
                 <h4>Today</h4>
                 {todayExpense.map((expense) => (
                   <div className="expenseItem" key={expense._id}>
@@ -288,7 +288,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
             )}
 
             {yesterdayExpense.length > 0 && (
-              <div>
+              <div className="expenseByDate">
                 <h4>Yesterday</h4>
                 {yesterdayExpense.map((expense) => (
                   <div className="expenseItem" key={expense._id}>
@@ -324,7 +324,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
             )}
 
             {olderExpenses.length > 0 && (
-              <div>
+              <div className="expenseByDate">
                 {olderExpenses.map((expense) => (
                   <div>
                     <h4>{getFormattedDate(expense.date)}</h4>
