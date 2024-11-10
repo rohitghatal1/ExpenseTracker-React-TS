@@ -22,9 +22,14 @@
     color: var(--text-color);
 }
 
+.expenseComponent .expenseHeading h2{
+    cursor: pointer;
+}
 .expenseComponent .expenseHeading span{
     font-size: 18px;
+    cursor: pointer;
 }
+
 .expenseComponent .newExpenseSection{
     background-color: var(--body-color);
     color: var(--text-color);
