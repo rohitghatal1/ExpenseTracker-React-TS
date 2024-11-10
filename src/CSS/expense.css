@@ -152,11 +152,11 @@ input[type="number"]::-webkit-inner-spin-button{
 
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem:hover{
     transform: scale(1.01);
-    filter: brightness(1.2);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* Makes icon visible on dark background */
+    filter: invert(1);
+    cursor: pointer;
   }
 
 .expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails{

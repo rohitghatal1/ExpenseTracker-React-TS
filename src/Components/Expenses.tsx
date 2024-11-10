@@ -39,7 +39,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   });
 
   const [expenses, setExpenses] = useState<Expense[]>([]);
-
   // Calculate total expense
   const totalExpense = expenses.reduce(
     (total, expense) => total + expense.amount,
@@ -210,6 +209,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       type="date"
                       name="date"
                       placeholder="Date"
+                      id="date-field"
                       value={convertIsoToDateString(formData.date)}
                       onChange={handleInputChange}
                     />
