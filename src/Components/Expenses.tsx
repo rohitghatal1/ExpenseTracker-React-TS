@@ -202,9 +202,9 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       <option value="Grocery">Grocery</option>
                       <option value="Stationery">Stationery</option>
                       <option value="Fruits">Fruits</option>
-                      <option value="Machinery/Equipment">
-                        Machinery/Equipment
-                      </option>
+                      <option value="Vegetables">Vegetables</option>
+                      <option value="Furniture">Furniture</option>
+                      <option value="Machinery/Equipment">Machinery/Equipment</option>
                     </select>
                   </div>
                   {/* Date */}

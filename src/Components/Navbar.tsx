@@ -5,7 +5,7 @@ import "../CSS/navbar.css"; // Ensure this CSS file exists and is properly style
 import "../responsiveCSS/navbar.css"
 import trackfund from "../assets/logo/trackfunds.png";
 import tf from "../assets/logo/tf.png"
-import googleLogo from "../assets/logo/google.png"
+
 
 interface NavbarProps {
   changeTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void;
