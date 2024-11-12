@@ -26,6 +26,7 @@ interface FormData {
 }
 
 const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
@@ -38,6 +39,10 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     notes: "",
   });
 
+  const openDatePicker = () => {
+    (document.getElementById('date-field') as HTMLInputElement)!.showPicker();
+  };
+  
   const [expenses, setExpenses] = useState<Expense[]>([]);
   // Calculate total expense
   const totalExpense = expenses.reduce(
@@ -212,6 +217,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       id="date-field"
                       value={convertIsoToDateString(formData.date)}
                       onChange={handleInputChange}
+                      onClick={openDatePicker}
                     />
                   </div>
                   {/* Notes */}
