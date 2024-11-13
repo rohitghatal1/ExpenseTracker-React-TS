@@ -42,6 +42,10 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
     }
   }, [location.pathname])
 
+  const handleGoogleLogin = () => {
+    
+  }
+
   return (
     <aside className={`sidebar ${isCollapsed? 'collapsed' : ''}`}>
       <nav className="navbar">
@@ -106,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
                 <button type="submit" className="confrmLogin"><i className="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
               </form>
               <div className="googleLoginOption">
-                <span className="googleLogin"><i className="fa-brands fa-google"></i> Login with Google</span>
+                <span className="googleLogin" onClick={handleGoogleLogin}><i className="fa-brands fa-google"></i> Login with Google</span>
               </div>
             </div>}
           </div>

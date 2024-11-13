@@ -25,6 +25,7 @@
 .expenseComponent .expenseHeading h2{
     cursor: pointer;
 }
+
 .expenseComponent .expenseHeading span{
     font-size: 18px;
     cursor: pointer;
