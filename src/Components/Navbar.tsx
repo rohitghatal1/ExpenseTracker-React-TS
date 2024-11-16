@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { NavLink } from 'react-router-dom';
 import { Link, useLocation } from "react-router-dom";
-import "../CSS/navbar.css"; // Ensure this CSS file exists and is properly styled
+import "../CSS/navbar.css";
 import "../responsiveCSS/navbar.css"
 import trackfund from "../assets/logo/trackfunds.png";
 import tf from "../assets/logo/tf.png"
