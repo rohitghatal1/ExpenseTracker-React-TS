@@ -54,6 +54,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
+        
         const response = await fetch("http://localhost:5000/api/expenses");
         const data = await response.json();
         setExpenses(data);
