@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios'
 import "../CSS/expense.css";
 
 import { submitExpenseForm, deleteExpense } from "./services/CRUD";
@@ -54,10 +55,8 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        
-        const response = await fetch("http://localhost:5000/api/expenses");
-        const data = await response.json();
-        setExpenses(data);
+        const response = await axios.get("http://localhost:5000/api/expenses");
+        setExpenses(response.data);
       } catch (error) {
         console.error("Error fetching expenses:", error);
       }
