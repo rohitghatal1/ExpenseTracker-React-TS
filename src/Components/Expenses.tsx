@@ -157,15 +157,17 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
       <div className={`expenseComponent ${isCollapsed ? "collapsed" : ""}`}>
         <div className="expenseHeading">
           <h2>Expenses</h2>
-          <span>Total: RS {totalExpense}</span>
+          <span>RS {totalExpense}</span>
         </div>
 
         <section className="newExpenseSection">
           {isModalOpen && (
             <div className="addExpenseModal">
               <form className="addExpenseForm" onSubmit={handleSubmit}>
+
                 {/* Form fields */}
                 <div className="formData">
+
                   {/* Title */}
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
@@ -177,6 +179,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       onChange={handleInputChange}
                     />
                   </div>
+                  
                   {/* Amount */}
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
