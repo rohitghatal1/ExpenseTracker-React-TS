@@ -16,7 +16,7 @@ router.post("/", addExpense);
 router.get("/", getExpenses);
 
 // Update an expense by ID
-router.put("/:id", updateExpense);
+// router.put("/:id", updateExpense);
 
 // Delete an expense by ID
 router.delete("/:id", deleteExpense);
