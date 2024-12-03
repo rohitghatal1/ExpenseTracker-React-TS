@@ -1,13 +1,12 @@
-import { Router, Request, Response } from "express";
-import Expenses from "../models/Expenses";
+import { Router,  } from "express";
 
-import {addExpense, updateExpense, deleteExpense, getExpenses} from "../controllers/expenseController"
+import {addExpense, deleteExpense, getExpenses} from "../controllers/expenseController"
 
 const router = Router();
 
-interface paramsWithId{
-    id: string;
-}
+// interface paramsWithId{
+//     id: string;
+// }
 
 // Add a new expense
 router.post("/", addExpense);
