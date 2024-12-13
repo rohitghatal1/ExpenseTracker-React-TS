@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 import "../CSS/expense.css";
+// import {FaPlus} from 'react-icons'
 
 import { submitExpenseForm, deleteExpense } from "./services/CRUD";
 
@@ -27,7 +28,6 @@ interface FormData {
 }
 
 const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
-
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(true);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
@@ -41,9 +41,9 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   });
 
   const openDatePicker = () => {
-    (document.getElementById('date-field') as HTMLInputElement)!.showPicker();
+    (document.getElementById("date-field") as HTMLInputElement)!.showPicker();
   };
-  
+
   const [expenses, setExpenses] = useState<Expense[]>([]);
   // Calculate total expense
   const totalExpense = expenses.reduce(
@@ -164,10 +164,8 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           {isModalOpen && (
             <div className="addExpenseModal">
               <form className="addExpenseForm" onSubmit={handleSubmit}>
-
                 {/* Form fields */}
                 <div className="formData">
-
                   {/* Title */}
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
@@ -179,7 +177,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       onChange={handleInputChange}
                     />
                   </div>
-                  
+
                   {/* Amount */}
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
@@ -207,7 +205,9 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       <option value="Fruits">Fruits</option>
                       <option value="Vegetables">Vegetables</option>
                       <option value="Furniture">Furniture</option>
-                      <option value="Machinery/Equipment">Machinery/Equipment</option>
+                      <option value="Machinery/Equipment">
+                        Machinery/Equipment
+                      </option>
                     </select>
                   </div>
                   {/* Date */}
