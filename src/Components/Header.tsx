@@ -6,31 +6,26 @@ import { TfiUser } from "react-icons/tfi";
 
 const Header: React.FC = () => {
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("expenseTrackerAccessToken");
     window.location.href = "/";
   };
+
   const content = (
     <div className="">
       <div className="flex items-center my-1">
         <Avatar className="bg-gray-300 text-white mx-4 h-[60px] w-[60px] ">
           <LuUser />
         </Avatar>
+
         <div className="mr-3">
           <p className=" text-sm font-semibold">Rohit Ghatal</p>
           <p className=" text-sm font-medium text-gray-500">9806415229</p>
         </div>
       </div>
+
       <hr className="w-full h-3" />
       <div className="m-2">
-        <p
-          className="flex items-center  font-semibold mb-2  cursor-pointer"
-          //   onClick={() => {
-          //     editProfileForm.setFieldsValue({
-          //       name: employeeData?.name,
-          //     });
-          //     openEditProfile();
-          //   }}
-        >
+        <p className="flex items-center  font-semibold mb-2  cursor-pointer">
           <TfiUser className="mr-2" /> Update profile
         </p>
 
@@ -54,6 +49,7 @@ const Header: React.FC = () => {
       </div>
     </div>
   );
+
   return (
     <header className="flex items-center justify-between px-5 h-[70px] shadow-md">
       <div className="flex items-center gap-3">
@@ -71,8 +67,6 @@ const Header: React.FC = () => {
             <div className="font-semibold text-[14px]">Rohit Ghatal</div>
           </div>
         </div>
-
-        <div className=""></div>
       </div>
 
       <div className="flex items-center space-x-3  px-5">
@@ -83,10 +77,7 @@ const Header: React.FC = () => {
           content={content}
           className="flex cursor-pointer items-center gap-2"
         >
-          <Avatar
-            className="bg-gray-300 text-white  h-[40px] w-[40px]"
-            // src={employeeData?.image}
-          >
+          <Avatar className="bg-gray-300 text-white  h-[40px] w-[40px]">
             <LuUser />
           </Avatar>
         </Popover>
