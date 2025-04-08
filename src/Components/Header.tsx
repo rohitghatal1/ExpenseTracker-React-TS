@@ -1,4 +1,4 @@
-import { Avatar, Popconfirm, Popover } from "antd";
+import { Avatar, Drawer, Form, Popconfirm, Popover } from "antd";
 import Logo from "../assets/logo/BharoshaLogo.png";
 import { LuUser } from "react-icons/lu";
 import { MdLock, MdLogout } from "react-icons/md";
@@ -58,38 +58,49 @@ const Header: React.FC = () => {
   );
 
   return (
-    <header className="flex items-center justify-between px-5 h-[70px] shadow-md">
-      <div className="flex items-center gap-3">
-        <div>
-          <Avatar
-            className="bg-gray-300 text-white min-h-[45px] min-w-[45px] "
-            src={Logo}
-          >
-            <span className="text-[30px]">Expense Tracker</span>
-          </Avatar>
-        </div>
+    <>
+      <header className="flex items-center justify-between px-5 h-[70px] shadow-md">
+        <div className="flex items-center gap-3">
+          <div>
+            <Avatar
+              className="bg-gray-300 text-white min-h-[45px] min-w-[45px] "
+              src={Logo}
+            >
+              <span className="text-[30px]">Expense Tracker</span>
+            </Avatar>
+          </div>
 
-        <div className="flex justify-between gap-5 items-center">
-          <div className="">
-            <div className="font-semibold text-[14px]">Rohit Ghatal</div>
+          <div className="flex justify-between gap-5 items-center">
+            <div className="">
+              <div className="font-semibold text-[14px]">Rohit Ghatal</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex items-center space-x-3  px-5">
-        <Popover
-          placement="bottomRight"
-          trigger="click"
-          zIndex={100}
-          content={content}
-          className="flex cursor-pointer items-center gap-2"
-        >
-          <Avatar className="bg-gray-300 text-white  h-[40px] w-[40px]">
-            <LuUser />
-          </Avatar>
-        </Popover>
-      </div>
-    </header>
+        <div className="flex items-center space-x-3  px-5">
+          <Popover
+            placement="bottomRight"
+            trigger="click"
+            zIndex={100}
+            content={content}
+            className="flex cursor-pointer items-center gap-2"
+          >
+            <Avatar className="bg-gray-300 text-white  h-[40px] w-[40px]">
+              <LuUser />
+            </Avatar>
+          </Popover>
+        </div>
+      </header>
+
+      <Drawer
+        open={isUpdateProfileDrawerVisible}
+        onClose={() => setIsUpdateProfileDrawerVisible(false)}
+        width={500}
+        title="Update Profile"
+      >
+        <Form></Form>
+      </Drawer>
+    </>
   );
 };
 export default Header;
