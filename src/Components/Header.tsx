@@ -3,8 +3,12 @@ import Logo from "../assets/logo/BharoshaLogo.png";
 import { LuUser } from "react-icons/lu";
 import { MdLock, MdLogout } from "react-icons/md";
 import { TfiUser } from "react-icons/tfi";
+import { useState } from "react";
 
 const Header: React.FC = () => {
+  const [isUpdateProfileDrawerVisible, setIsUpdateProfileDrawerVisible] =
+    useState<boolean>(false);
+
   const handleLogout = () => {
     localStorage.removeItem("expenseTrackerAccessToken");
     window.location.href = "/";
@@ -25,7 +29,10 @@ const Header: React.FC = () => {
 
       <hr className="w-full h-3" />
       <div className="m-2">
-        <p className="flex items-center  font-semibold mb-2  cursor-pointer">
+        <p
+          className="flex items-center  font-semibold mb-2  cursor-pointer"
+          onClick={() => setIsUpdateProfileDrawerVisible(true)}
+        >
           <TfiUser className="mr-2" /> Update profile
         </p>
 
