@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../CSS/expense.css";
-// import {FaPlus} from 'react-icons'
 
 import { submitExpenseForm, deleteExpense } from "./services/CRUD";
+import { Input, Select } from "antd";
 
 interface NavbarProps {
   isCollapsed: boolean;
@@ -45,13 +45,12 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
   };
 
   const [expenses, setExpenses] = useState<Expense[]>([]);
-  // Calculate total expense
+
   const totalExpense = expenses.reduce(
     (total, expense) => total + expense.amount,
     0
   );
 
-  // Fetch all expenses on component mount
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
@@ -164,9 +163,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
           {isModalOpen && (
             <div className="addExpenseModal">
               <form className="addExpenseForm" onSubmit={handleSubmit}>
-                {/* Form fields */}
                 <div className="formData">
-                  {/* Title */}
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
                     <input
@@ -181,7 +178,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   {/* Amount */}
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
-                    <input
+                    <Input
                       type="number"
                       name="amount"
                       placeholder="Amount"
@@ -192,9 +189,9 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   {/* Category */}
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
-                    <select
-                      name="category"
-                      value={formData.category}
+                    <Select
+                      // name="category"
+                      // value={formData.category}
                       onChange={handleInputChange}
                     >
                       <option value="Food">Food</option>
@@ -208,7 +205,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       <option value="Machinery/Equipment">
                         Machinery/Equipment
                       </option>
-                    </select>
+                    </Select>
                   </div>
                   {/* Date */}
                   <div className="expenseElement">

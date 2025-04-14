@@ -1,7 +1,6 @@
 import React from "react";
 import "../CSS/dashboard.css";
 import { Pie, PieChart } from "recharts";
-import moment from "moment";
 
 interface Props {
   isCollapsed: boolean;
@@ -17,6 +16,7 @@ const Dashboard: React.FC<Props> = ({ isCollapsed }) => {
     <div className={`dashboardComponent ${isCollapsed ? "collapsed" : ""}`}>
       <div className="dashboardContainer">
         <h2 className="bg-red-100">Dashboard</h2>
+
         <div className="dashboardContentsContainer">
           <section className="barChartSection">
             <h3>Bar Chart</h3>
