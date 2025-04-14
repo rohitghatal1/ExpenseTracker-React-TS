@@ -8,8 +8,8 @@ interface Props {
 }
 const Dashboard: React.FC<Props> = ({ isCollapsed }) => {
   const chartData = [
-    { name: "something", value: 400 },
-    { name: "anything", value: 500 },
+    { name: "Expenses", value: 400 },
+    { name: "Savings", value: 500 },
     { name: "anohter", value: 600 },
     { name: "anythig", value: 300 },
   ];
@@ -22,7 +22,8 @@ const Dashboard: React.FC<Props> = ({ isCollapsed }) => {
             <h3>Bar Chart</h3>
             <div className="barChart"></div>
           </section>
-          <section className="pieChartSection">
+
+          <section className="pieChartSection px-2 py-3">
             <h3>Pie Chart</h3>
             <div className="pieChart">
               <PieChart width={400} height={500}>

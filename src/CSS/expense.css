@@ -1,4 +1,4 @@
-.expenseComponent{
+.expenseComponent {
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 1rem;
@@ -10,11 +10,12 @@
     transition: all 0.3s ease;
 }
 
-.expenseComponent.collapsed{
+.expenseComponent.collapsed {
     margin-left: 90px;
     width: 90%;
 }
-.expenseComponent .expenseHeading{
+
+.expenseComponent .expenseHeading {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,35 +23,37 @@
     color: var(--text-color);
 }
 
-.expenseComponent .expenseHeading h2{
+.expenseComponent .expenseHeading h2 {
     cursor: pointer;
 }
 
-.expenseComponent .expenseHeading span{
+.expenseComponent .expenseHeading span {
     font-size: 18px;
     cursor: pointer;
 }
 
-.expenseComponent .newExpenseSection{
+.expenseComponent .newExpenseSection {
     background-color: var(--body-color);
     color: var(--text-color);
     border-radius: 10px;
     padding: 1rem;
 }
 
-.expenseComponent .newExpenseSection .addNewExpense{
+.expenseComponent .newExpenseSection .addNewExpense {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 8px;
+    border-radius: 10px;
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
@@ -58,7 +61,7 @@
     gap: 1rem;
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel .cancelBtn{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel .cancelBtn {
     background-color: var(--secondary-color);
     color: var(--text-color);
     padding: 10px 20px;
@@ -69,19 +72,21 @@
     transition: all ease 0.4s;
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel .cancelBtn:hover{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm .confirmCancel .cancelBtn:hover {
     background-color: var(--secondary-hover);
     transform: scale(0.95);
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .formData{
+.expenseComponent .newExpenseSection .addExpenseModal .formData {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 14px;
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm input, select, textarea{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm input,
+select,
+textarea {
     padding: 8px;
     border-radius: 6px;
     border: 1px solid #ccc;
@@ -89,11 +94,13 @@
     color: var(--text-color);
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm input::placeholder, select::placeholder, textarea::placeholder{
+.expenseComponent .newExpenseSection .addExpenseModal .addExpenseForm input::placeholder,
+select::placeholder,
+textarea::placeholder {
     color: var(--text-color);
 }
 
-.expenseComponent .newExpenseSection .addExpenseModal .expenseElement{
+.expenseComponent .newExpenseSection .addExpenseModal .expenseElement {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,10 +109,11 @@
     color: var(--text-color);
     font-size: 18px;
     margin-right: 10px;
+    padding: 10px;
 }
 
 .expenseComponent .newExpenseSection .addNewExpense .addExpensebtn,
-.expenseComponent .addExpenseModal .addExpenseForm .submitBtn{
+.expenseComponent .addExpenseModal .addExpenseForm .submitBtn {
     background-color: var(--primary-color);
     color: var(--text-color);
     padding: 10px 20px;
@@ -117,12 +125,12 @@
 }
 
 .expenseComponent .newExpenseSection .addNewExpense .addExpensebtn:hover,
-.expenseComponent .addExpenseModal .addExpenseForm .submitBtn:hover{
+.expenseComponent .addExpenseModal .addExpenseForm .submitBtn:hover {
     transform: scale(1.05);
     background-color: var(--primary-hover);
 }
 
-.expenseComponent .expenseContainer{
+.expenseComponent .expenseContainer {
     padding: 1rem;
     background-color: var(--body-color);
     color: var(--text-color);
@@ -130,7 +138,7 @@
     border-radius: 10px;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer{
+.expenseComponent .expenseContainer .expenseItemsContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -139,7 +147,7 @@
 }
 
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,21 +159,21 @@
 }
 
 input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button{
+input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem:hover{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem:hover {
     transform: scale(1.01);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
-  }
+}
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails {
     width: 80%;
     padding: 1rem;
     display: flex;
@@ -173,23 +181,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails .expenseNameCat .expenseName{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails .expenseNameCat .expenseName {
     font-size: 16px;
     font-weight: bold;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails .expenseNameCat .category{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .expenseDetails .expenseNameCat .category {
     font-size: 14px;
     font-weight: lighter;
 }
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense{
+
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense {
     width: 20%;
     display: flex;
     gap: 0.5rem;
     align-items: center;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense button{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense button {
     padding: 10px 20px;
     border-radius: 6px;
     text-align: center;
@@ -197,24 +206,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .updateBtn{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .updateBtn {
     background-color: var(--update-btn-color);
     color: var(--text-color);
     transition: all 0.3s ease;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .updateBtn:hover{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .updateBtn:hover {
     transform: scale(1.05);
     background-color: var(--update-btn-hover);
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn {
     background-color: var(--secondary-color);
     color: var(--text-color);
     transition: all 0.3s ease;
 }
 
-.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn:hover{
+.expenseComponent .expenseContainer .expenseItemsContainer .expenseItem .deleteUpdateExpense .deleteBtn:hover {
     transform: scale(0.95);
     background-color: var(--secondary-hover);
 }
