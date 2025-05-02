@@ -3,7 +3,7 @@ import axios from "axios";
 import "../CSS/expense.css";
 
 import { submitExpenseForm, deleteExpense } from "./services/CRUD";
-import { Input, Select } from "antd";
+import { DatePicker, Form, Input, Select } from "antd";
 const { Option } = Select;
 
 interface NavbarProps {
@@ -163,11 +163,11 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         <section className="newExpenseSection">
           {isModalOpen && (
             <div className="addExpenseModal">
-              <form className="addExpenseForm" onSubmit={handleSubmit}>
+              <Form className="addExpenseForm" onFinish={handleSubmit}>
                 <div className="formData">
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
-                    <input
+                    <Input
                       type="text"
                       name="title"
                       placeholder="Expense description"
@@ -213,25 +213,25 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   {/* Date */}
                   <div className="expenseElement">
                     <label htmlFor="date">Expense Date</label>
-                    <input
+                    <DatePicker
                       type="date"
                       name="date"
                       placeholder="Date"
                       id="date-field"
-                      value={convertIsoToDateString(formData.date)}
+                      // value={convertIsoToDateString(formData.date)}
                       onChange={handleInputChange}
-                      onClick={openDatePicker}
+                      // onClick={openDatePicker}
                     />
                   </div>
                   {/* Notes */}
                   <div className="expenseElement">
                     <label htmlFor="notes">Additional Note</label>
-                    <textarea
+                    <Input.TextArea
                       name="notes"
                       placeholder="Additional notes if any."
                       value={formData.notes}
                       onChange={handleInputChange}
-                    ></textarea>
+                    />
                   </div>
                 </div>
 
@@ -244,7 +244,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                     <i className="fas fa-times"></i> Cancel
                   </button>
                 </div>
-              </form>
+              </Form>
             </div>
           )}
 
