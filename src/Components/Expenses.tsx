@@ -4,6 +4,7 @@ import "../CSS/expense.css";
 
 import { submitExpenseForm, deleteExpense } from "./services/CRUD";
 import { Input, Select } from "antd";
+const { Option } = Select;
 
 interface NavbarProps {
   isCollapsed: boolean;
@@ -186,6 +187,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       onChange={handleInputChange}
                     />
                   </div>
+
                   {/* Category */}
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
@@ -194,19 +196,20 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       // value={formData.category}
                       onChange={handleInputChange}
                     >
-                      <option value="Food">Food</option>
-                      <option value="Drinks">Drinks</option>
-                      <option value="Fast Food">Fast Food</option>
-                      <option value="Grocery">Grocery</option>
-                      <option value="Stationery">Stationery</option>
-                      <option value="Fruits">Fruits</option>
-                      <option value="Vegetables">Vegetables</option>
-                      <option value="Furniture">Furniture</option>
-                      <option value="Machinery/Equipment">
+                      <Option value="Food">Food</Option>
+                      <Option value="Drinks">Drinks</Option>
+                      <Option value="Fast Food">Fast Food</Option>
+                      <Option value="Grocery">Grocery</Option>
+                      <Option value="Stationery">Stationery</Option>
+                      <Option value="Fruits">Fruits</Option>
+                      <Option value="Vegetables">Vegetables</Option>
+                      <Option value="Furniture">Furniture</Option>
+                      <Option value="Machinery/Equipment">
                         Machinery/Equipment
-                      </option>
+                      </Option>
                     </Select>
                   </div>
+
                   {/* Date */}
                   <div className="expenseElement">
                     <label htmlFor="date">Expense Date</label>
