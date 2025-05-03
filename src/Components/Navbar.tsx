@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../CSS/navbar.css";
-import "../responsiveCSS/navbar.css"
+import "../responsiveCSS/navbar.css";
 import trackfund from "../assets/logo/trackfunds.png";
-import tf from "../assets/logo/tf.png"
-
+import tf from "../assets/logo/tf.png";
+import { Form, Input, Select } from "antd";
+const { Option } = Select;
 
 interface NavbarProps {
   changeTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -13,45 +14,56 @@ interface NavbarProps {
   isCollapsed: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCollapsed }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  changeTheme,
+  theme,
+  toggleNavbar,
+  isCollapsed,
+}) => {
   const [activeLink, setActiveLink] = useState<string>("dashboard");
 
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
 
   const openLoginModal = () => {
     setIsLoginOpen(true);
-  }
+  };
 
   const closeLoginModal = () => {
     setIsLoginOpen(false);
-  }
+  };
 
   const location = useLocation();
-  useEffect(()=>{
+  useEffect(() => {
     const currentPath = location.pathname;
-    
-    if(currentPath === "/"){
+
+    if (currentPath === "/") {
       setActiveLink("dashboard");
-    }
-    else if(currentPath === "/expenses"){
+    } else if (currentPath === "/expenses") {
       setActiveLink("expenses");
-    }
-    else if(currentPath === "/reports"){
+    } else if (currentPath === "/reports") {
       setActiveLink("reports");
     }
-  }, [location.pathname])
+  }, [location.pathname]);
 
-  const handleGoogleLogin = () => {
-    
-  }
+  const handleGoogleLogin = () => {};
 
   return (
-    <aside className={`sidebar ${isCollapsed? 'collapsed' : ''}`}>
+    <aside className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
       <nav className="navbar">
-        <button className="sidebarAdjust" title={`${isCollapsed? "Expand Navbar" : "Collapse Navbar"}`} onClick={toggleNavbar}><i className={`fa-solid ${isCollapsed? 'fa-arrow-right-long': 'fa-arrow-left-long'}`}></i></button>
-        
+        <button
+          className="sidebarAdjust"
+          title={`${isCollapsed ? "Expand Navbar" : "Collapse Navbar"}`}
+          onClick={toggleNavbar}
+        >
+          <i
+            className={`fa-solid ${
+              isCollapsed ? "fa-arrow-right-long" : "fa-arrow-left-long"
+            }`}
+          ></i>
+        </button>
+
         <div className="logo">
-          <img src={isCollapsed? tf : trackfund} alt="" />
+          <img src={isCollapsed ? tf : trackfund} alt="" />
         </div>
 
         <div className="navigations">
@@ -64,7 +76,8 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               title="Dashboard"
             >
               <li className="linkItem">
-                <i className="fa-solid fa-table-columns"></i> <label htmlFor="">Dashboard</label>
+                <i className="fa-solid fa-table-columns"></i>{" "}
+                <label htmlFor="">Dashboard</label>
               </li>
             </Link>
             <Link
@@ -75,7 +88,8 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               title="Expenses"
             >
               <li className="linkItem">
-              <i className="fa-solid fa-money-check-dollar"></i> <label htmlFor="">Expenses</label> 
+                <i className="fa-solid fa-money-check-dollar"></i>{" "}
+                <label htmlFor="">Expenses</label>
               </li>
             </Link>
             <Link
@@ -86,7 +100,8 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
               title="Reports"
             >
               <li className="linkItem">
-                <i className="fas fa-file-alt"></i> <label htmlFor="">Reports</label> 
+                <i className="fas fa-file-alt"></i>{" "}
+                <label htmlFor="">Reports</label>
               </li>
             </Link>
           </ul>
@@ -94,33 +109,64 @@ const Navbar: React.FC<NavbarProps> = ({ changeTheme, theme, toggleNavbar, isCol
 
         <div className="settingUser">
           <div className="userAccount">
-            <button className="loginBtn" title="Login" onClick={openLoginModal}><i className="fa-solid fa-right-to-bracket"></i><label htmlFor=""> Login</label></button>
-            
-            {isLoginOpen && <div className="loginModal">
-              <h3><i className="fa-regular fa-user"></i> User Login</h3>
-              <span className="closeLoginBtn" onClick={closeLoginModal}>&times;</span>
-              <form>
-                <label htmlFor="username"><i className="fas fa-user"></i> Username:</label>
-                <input type="text" name="uname" placeholder="Enter your username"/>
+            <button className="loginBtn" title="Login" onClick={openLoginModal}>
+              <i className="fa-solid fa-right-to-bracket"></i>
+              <label htmlFor=""> Login</label>
+            </button>
 
-                <label htmlFor="password"> <i className="fas fa-lock"></i> Password:</label>
-                <input type="password" name="upassword" placeholder="Enter your password" />
+            {isLoginOpen && (
+              <div className="loginModal">
+                <h3>
+                  <i className="fa-regular fa-user"></i> User Login
+                </h3>
+                <span className="closeLoginBtn" onClick={closeLoginModal}>
+                  &times;
+                </span>
+                <Form>
+                  <label htmlFor="username">
+                    <i className="fas fa-user"></i> Username:
+                  </label>
+                  <Input
+                    type="text"
+                    name="uname"
+                    placeholder="Enter your username"
+                  />
 
-                <button type="submit" className="confrmLogin"><i className="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
-              </form>
-              <div className="googleLoginOption">
-                <span className="googleLogin" onClick={handleGoogleLogin}><i className="fa-brands fa-google"></i> Login with Google</span>
+                  <label htmlFor="password">
+                    {" "}
+                    <i className="fas fa-lock"></i> Password:
+                  </label>
+                  <Input
+                    type="password"
+                    name="upassword"
+                    placeholder="Enter your password"
+                  />
+
+                  <button type="submit" className="confrmLogin">
+                    <i className="fa-solid fa-arrow-right-to-bracket"></i> Login
+                  </button>
+                </Form>
+                <div className="googleLoginOption">
+                  <span className="googleLogin" onClick={handleGoogleLogin}>
+                    <i className="fa-brands fa-google"></i> Login with Google
+                  </span>
+                </div>
               </div>
-            </div>}
+            )}
           </div>
 
           <div className="modeSwitch">
-            <select value={theme} onChange={changeTheme}>
-              <option value="" disabled>Select Theme</option>
-              <option value="root">Default Theme</option>
-              <option value="dark">Dark Mode</option>
-              <option value="light">Light Mode</option>
-            </select>
+            <Select
+              //  value={theme}
+              onChange={changeTheme}
+            >
+              <Option value="" disabled>
+                Select Theme
+              </Option>
+              <Option value="root">Default Theme</Option>
+              <Option value="dark">Dark Mode</Option>
+              <Option value="light">Light Mode</Option>
+            </Select>
           </div>
         </div>
       </nav>
