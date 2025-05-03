@@ -223,6 +223,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                       // onClick={openDatePicker}
                     />
                   </div>
+
                   {/* Notes */}
                   <div className="expenseElement">
                     <label htmlFor="notes">Additional Note</label>
@@ -263,7 +264,8 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
             {todayExpense.length > 0 && (
               <div className="expenseByDate">
                 <h4>Today</h4>
-                {todayExpense.map((expense) => (
+
+                {todayExpense?.map((expense) => (
                   <div className="expenseItem" key={expense._id}>
                     <div className="expenseDetails">
                       <div className="expenseNameCat">
@@ -271,6 +273,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                         <br />
                         <span className="category">({expense.category})</span>
                       </div>
+
                       <div className="expenseAmount">
                         <span>Rs {expense.amount}</span>
                       </div>

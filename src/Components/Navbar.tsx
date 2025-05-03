@@ -4,7 +4,7 @@ import "../CSS/navbar.css";
 import "../responsiveCSS/navbar.css";
 import trackfund from "../assets/logo/trackfunds.png";
 import tf from "../assets/logo/tf.png";
-import { Form, Input, Select } from "antd";
+import { Button, Form, Input, Select } from "antd";
 const { Option } = Select;
 
 interface NavbarProps {
@@ -80,6 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <label htmlFor="">Dashboard</label>
               </li>
             </Link>
+
             <Link
               to="/expenses"
               className={`navLink ${
@@ -92,6 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <label htmlFor="">Expenses</label>
               </li>
             </Link>
+
             <Link
               to="/reports"
               className={`navLink ${
@@ -122,6 +124,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <span className="closeLoginBtn" onClick={closeLoginModal}>
                   &times;
                 </span>
+
                 <Form>
                   <label htmlFor="username">
                     <i className="fas fa-user"></i> Username:
@@ -136,15 +139,16 @@ const Navbar: React.FC<NavbarProps> = ({
                     {" "}
                     <i className="fas fa-lock"></i> Password:
                   </label>
+
                   <Input
                     type="password"
                     name="upassword"
                     placeholder="Enter your password"
                   />
 
-                  <button type="submit" className="confrmLogin">
+                  <Button htmlType="submit" className="confrmLogin">
                     <i className="fa-solid fa-arrow-right-to-bracket"></i> Login
-                  </button>
+                  </Button>
                 </Form>
                 <div className="googleLoginOption">
                   <span className="googleLogin" onClick={handleGoogleLogin}>
