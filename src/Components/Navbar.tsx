@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <aside className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
       <nav className="navbar">
-        <button
+        <Button
           className="sidebarAdjust"
           title={`${isCollapsed ? "Expand Navbar" : "Collapse Navbar"}`}
           onClick={toggleNavbar}
@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({
               isCollapsed ? "fa-arrow-right-long" : "fa-arrow-left-long"
             }`}
           ></i>
-        </button>
+        </Button>
 
         <div className="logo">
           <img src={isCollapsed ? tf : trackfund} alt="" />
