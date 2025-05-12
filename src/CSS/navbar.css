@@ -1,4 +1,3 @@
-
 .sidebar {
   position: fixed;
   left: 0;
@@ -9,8 +8,8 @@
   padding-top: 20px;
   transition: width 0.3s ease;
 }
-  
-.sidebar.collapsed{
+
+.sidebar.collapsed {
   width: 70px;
 }
 
@@ -23,7 +22,7 @@
   position: relative;
 }
 
-.navbar .sidebarAdjust{
+.navbar .sidebarAdjust {
   position: absolute;
   top: 0;
   right: 4px;
@@ -38,11 +37,11 @@
   border-radius: 6px;
 }
 
-.sidebar.collapsed .navbar .sidebarAdjust{
+.sidebar.collapsed .navbar .sidebarAdjust {
   transform: translateX(-50%);
 }
 
-.navbar .logo{
+.navbar .logo {
   margin-top: 2rem;
   width: 100%;
   height: 4rem;
@@ -50,18 +49,18 @@
   overflow: hidden;
 }
 
-.navbar .logo img{
-width: 100%;
-height: 100%;
-mix-blend-mode: difference;
+.navbar .logo img {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: difference;
 }
 
-  .navbarList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+.navbarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .navLink {
   margin-top: 1rem;
   text-decoration: none;
@@ -73,9 +72,10 @@ mix-blend-mode: difference;
   cursor: pointer;
 }
 
-.sidebar.collapsed .navLink .linkItem label{
+.sidebar.collapsed .navLink .linkItem label {
   display: none;
 }
+
 .navLink:hover {
   background-color: var(--primary-hover);
 }
@@ -85,17 +85,17 @@ mix-blend-mode: difference;
   color: var(--update-btn-color);
 }
 
-.activeLink:hover{
+.activeLink:hover {
   background-color: var(--background-hover);
 }
 
-.navbar .settingUser .userAccount{
+.navbar .settingUser .userAccount {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.navbar .settingUser .userAccount .loginBtn{
+.navbar .settingUser .userAccount .loginBtn {
   padding: 10px 20px;
   border-radius: 6px;
   border: 1px solid var(--text-color);
@@ -105,19 +105,19 @@ mix-blend-mode: difference;
   cursor: pointer;
 }
 
-.sidebar .settingUser .userAccount .loginBtn label{
+.sidebar .settingUser .userAccount .loginBtn label {
   cursor: pointer;
 }
 
-.sidebar.collapsed .settingUser .userAccount .loginBtn{
+.sidebar.collapsed .settingUser .userAccount .loginBtn {
   padding: 5px 10px;
 }
 
-.sidebar.collapsed .settingUser .userAccount .loginBtn label{
+.sidebar.collapsed .settingUser .userAccount .loginBtn label {
   display: none;
 }
 
-.settingUser .userAccount .loginModal{
+.settingUser .userAccount .loginModal {
   position: fixed;
   top: 0;
   left: 50%;
@@ -129,15 +129,15 @@ mix-blend-mode: difference;
   padding: 10px;
 }
 
-.settingUser .userAccount .loginModal h3{
+.settingUser .userAccount .loginModal h3 {
   text-align: center;
 }
 
-.settingUser .userAccount .loginModal form{
+.settingUser .userAccount .loginModal form {
   padding: 10px 20px;
 }
 
-.settingUser .userAccount .loginModal form input{
+.settingUser .userAccount .loginModal form input {
   width: 100%;
   padding: 8px;
   border-radius: 6px;
@@ -145,7 +145,7 @@ mix-blend-mode: difference;
   border: 1px solid var(--primary-color);
 }
 
-.settingUser .userAccount .loginModal .confrmLogin{
+.settingUser .userAccount .loginModal .confrmLogin {
   padding: 10px 20px;
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -156,12 +156,12 @@ mix-blend-mode: difference;
   width: 92px;
 }
 
-.settingUser .userAccount .loginModal .confrmLogin:hover{
+.settingUser .userAccount .loginModal .confrmLogin:hover {
   transform: scale(1.05);
   background-color: var(--primary-hover);
 }
 
-.settingUser .userAccount .loginModal .closeLoginBtn{
+.settingUser .userAccount .loginModal .closeLoginBtn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -171,11 +171,11 @@ mix-blend-mode: difference;
   transition: color 0.3s ease;
 }
 
-.settingUser .userAccount .loginModal .closeLoginBtn:hover{
+.settingUser .userAccount .loginModal .closeLoginBtn:hover {
   color: var(--secondary-hover);
 }
 
-.settingUser .userAccount .loginModal .googleLoginOption{
+.settingUser .userAccount .loginModal .googleLoginOption {
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -183,7 +183,7 @@ mix-blend-mode: difference;
   margin-top: 10px;
 }
 
-.settingUser .userAccount .loginModal .googleLoginOption .googleLogin{
+.settingUser .userAccount .loginModal .googleLoginOption .googleLogin {
   padding: 10px 20px;
   border-radius: 6px;
   background-color: var(--primary-color);
@@ -191,12 +191,13 @@ mix-blend-mode: difference;
   font-size: 16px;
 }
 
-.sidebar.collapsed .navbar .modeSwitch{
+.sidebar.collapsed .navbar .modeSwitch {
   opacity: 0;
 }
 
-.navbar .modeSwitch{
+.navbar .modeSwitch {
   position: absolute;
+  min-width: 20px;
   bottom: 60px;
   width: 100%;
   display: flex;
@@ -204,7 +205,7 @@ mix-blend-mode: difference;
   align-items: center;
 }
 
-.navbar .modeSwitch select{
+.navbar .modeSwitch select {
   background-color: var(--primary-color);
   color: var(--text-color);
   padding: 10px 20px;
@@ -213,4 +214,3 @@ mix-blend-mode: difference;
   border: 1px solid var(--text-color);
   cursor: pointer;
 }
-  

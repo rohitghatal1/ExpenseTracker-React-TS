@@ -1,48 +1,128 @@
-:root{
-    --body-color: #134B70;
-    --body-hover: #1A5e8E;
-    --primary-color: #201E43;
-    --primary-hover: #2D2A5A;
-    --secondary-color: #FF6F61;
-    --secondary-hover: red;
-    --background-color: #508C9B;
-    --background-hover: #6AA3B0;
-    --update-btn-color: #28a745;
-    --update-btn-hover: #218838;
-    --text-color: #EEEEEE;
+:root {
+    /* Base Colors */
+    --body-color: #1a365d;
+    /* Deep blue */
+    --body-hover: #2a4365;
+    /* Slightly lighter blue */
+
+    /* Primary Colors */
+    --primary-color: #2d3748;
+    /* Dark gray-blue */
+    --primary-hover: #4a5568;
+    /* Medium gray-blue */
+
+    /* Accent Colors */
+    --secondary-color: #4299e1;
+    /* Vibrant blue */
+    --secondary-hover: #3182ce;
+    /* Slightly darker blue */
+
+    /* Background Elements */
+    --background-color: #4c51bf;
+    /* Royal purple-blue */
+    --background-hover: #5a67d8;
+    /* Lighter purple-blue */
+
+    /* Action Colors */
+    --update-btn-color: #48bb78;
+    /* Fresh green */
+    --update-btn-hover: #38a169;
+    /* Darker green */
+
+    /* Text */
+    --text-color: #f7fafc;
+    /* Very light gray */
+
+    /* Danger/Error */
+    --danger-color: #f56565;
+    /* Soft red */
+    --danger-hover: #e53e3e;
+    /* Stronger red */
 }
 
 /* Dark Mode */
 [data-theme="dark"] {
-    --body-color: #0d1117;
-    --body-hover: #161b22;
-    --primary-color: #010409;
-    --primary-hover: #0a0e14;
-    --secondary-color: #FF6F61;
-    --secondary-hover: red;
-    --background-color: #070707;
-    --background-hover: #1a1a1a;
-    --update-btn-color: #28a745;
-    --update-btn-hover: #218838;
-    --text-color: #FFFFFF;
+    /* Base Colors */
+    --body-color: #121212;
+    /* True dark */
+    --body-hover: #1e1e1e;
+    /* Slightly lighter dark */
+
+    /* Primary Colors */
+    --primary-color: #1f2937;
+    /* Dark gray-blue */
+    --primary-hover: #374151;
+    /* Medium gray-blue */
+
+    /* Accent Colors */
+    --secondary-color: #60a5fa;
+    /* Soft blue */
+    --secondary-hover: #3b82f6;
+    /* Stronger blue */
+
+    /* Background Elements */
+    --background-color: #1e1e1e;
+    /* Dark gray */
+    --background-hover: #2d2d2d;
+    /* Lighter gray */
+
+    /* Action Colors (unchanged for consistency) */
+    --update-btn-color: #48bb78;
+    --update-btn-hover: #38a169;
+
+    /* Text */
+    --text-color: #e5e7eb;
+    /* Light gray */
+
+    /* Danger/Error */
+    --danger-color: #f87171;
+    /* Soft red */
+    --danger-hover: #ef4444;
+    /* Stronger red */
 }
 
 /* Light Mode */
 [data-theme="light"] {
-    --body-color: #f7f7f7;
-    --body-hover: #F0F0F0;
-    --primary-color: #222222;
-    --primary-hover: #d6e9f8;
-    --secondary-color: #DC3545;
-    --secondary-hover: #FF4C39;
-    --background-color: #E5F4FD;
-    --background-hover: #E5E5E5;
-    --update-btn-color: #28a745;
-    --update-btn-hover: #218838; 
-    --text-color: #555555;
+    /* Base Colors */
+    --body-color: #f8fafc;
+    /* Very light gray */
+    --body-hover: #f1f5f9;
+    /* Slightly darker light gray */
+
+    /* Primary Colors */
+    --primary-color: #ffffff;
+    /* Pure white */
+    --primary-hover: #f8fafc;
+    /* Very light gray */
+
+    /* Accent Colors */
+    --secondary-color: #2563eb;
+    /* Strong blue */
+    --secondary-hover: #1d4ed8;
+    /* Darker blue */
+
+    /* Background Elements */
+    --background-color: #e2e8f0;
+    /* Light gray */
+    --background-hover: #cbd5e1;
+    /* Medium gray */
+
+    /* Action Colors (unchanged for consistency) */
+    --update-btn-color: #48bb78;
+    --update-btn-hover: #38a169;
+
+    /* Text */
+    --text-color: #1e293b;
+    /* Dark blue-gray */
+
+    /* Danger/Error */
+    --danger-color: #dc2626;
+    /* Strong red */
+    --danger-hover: #b91c1c;
+    /* Darker red */
 }
 
-body{
+body {
     background-color: var(--body-color);
     color: var(--text-color);
     transition: background-color 0.5s, color 0.5s;

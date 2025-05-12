@@ -160,17 +160,14 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="modeSwitch">
-            <Select
-              //  value={theme}
-              onChange={changeTheme}
-            >
-              <Option value="" disabled>
+            <select value={theme} onChange={changeTheme}>
+              <option value="" disabled>
                 Select Theme
-              </Option>
-              <Option value="root">Default Theme</Option>
-              <Option value="dark">Dark Mode</Option>
-              <Option value="light">Light Mode</Option>
-            </Select>
+              </option>
+              <option value="root">Default Theme</option>
+              <option value="dark">Dark Mode</option>
+              <option value="light">Light Mode</option>
+            </select>
           </div>
         </div>
       </nav>
