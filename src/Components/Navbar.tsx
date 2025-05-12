@@ -4,8 +4,6 @@ import "../CSS/navbar.css";
 import "../responsiveCSS/navbar.css";
 import trackfund from "../assets/logo/trackfunds.png";
 import tf from "../assets/logo/tf.png";
-import { Button, Form, Input, Select } from "antd";
-const { Option } = Select;
 
 interface NavbarProps {
   changeTheme: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -50,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <aside className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
       <nav className="navbar">
-        <Button
+        <button
           className="sidebarAdjust"
           title={`${isCollapsed ? "Expand Navbar" : "Collapse Navbar"}`}
           onClick={toggleNavbar}
@@ -60,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({
               isCollapsed ? "fa-arrow-right-long" : "fa-arrow-left-long"
             }`}
           ></i>
-        </Button>
+        </button>
 
         <div className="logo">
           <img src={isCollapsed ? tf : trackfund} alt="" />
@@ -125,11 +123,11 @@ const Navbar: React.FC<NavbarProps> = ({
                   &times;
                 </span>
 
-                <Form>
+                <form>
                   <label htmlFor="username">
                     <i className="fas fa-user"></i> Username:
                   </label>
-                  <Input
+                  <input
                     type="text"
                     name="uname"
                     placeholder="Enter your username"
@@ -140,16 +138,16 @@ const Navbar: React.FC<NavbarProps> = ({
                     <i className="fas fa-lock"></i> Password:
                   </label>
 
-                  <Input
+                  <input
                     type="password"
                     name="upassword"
                     placeholder="Enter your password"
                   />
 
-                  <Button htmlType="submit" className="confrmLogin">
+                  <button type="submit" className="confrmLogin">
                     <i className="fa-solid fa-arrow-right-to-bracket"></i> Login
-                  </Button>
-                </Form>
+                  </button>
+                </form>
                 <div className="googleLoginOption">
                   <span className="googleLogin" onClick={handleGoogleLogin}>
                     <i className="fa-brands fa-google"></i> Login with Google
