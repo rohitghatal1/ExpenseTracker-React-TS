@@ -89,25 +89,22 @@
     --body-hover: #f1f5f9;
     /* Slightly darker light gray */
 
-    /* Primary Colors */
+
     --primary-color: #ffffff;
-    /* Pure white */
+
     --primary-hover: #f8fafc;
-    /* Very light gray */
 
-    /* Accent Colors */
+
+
     --secondary-color: #2563eb;
-    /* Strong blue */
+
     --secondary-hover: #1d4ed8;
-    /* Darker blue */
 
-    /* Background Elements */
+
+
     --background-color: #e2e8f0;
-    /* Light gray */
     --background-hover: #cbd5e1;
-    /* Medium gray */
 
-    /* Action Colors (unchanged for consistency) */
     --update-btn-color: #48bb78;
     --update-btn-hover: #38a169;
 

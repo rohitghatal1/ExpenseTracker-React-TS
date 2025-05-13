@@ -3,8 +3,7 @@ import axios from "axios";
 import "../CSS/expense.css";
 
 import { submitExpenseForm, deleteExpense } from "./services/CRUD";
-import { DatePicker, Form, Input, Select } from "antd";
-const { Option } = Select;
+import { DatePicker } from "antd";
 
 interface NavbarProps {
   isCollapsed: boolean;
@@ -40,10 +39,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     date: "",
     notes: "",
   });
-
-  const openDatePicker = () => {
-    (document.getElementById("date-field") as HTMLInputElement)!.showPicker();
-  };
 
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
@@ -114,13 +109,6 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
     deleteExpense(id, setExpenses);
   };
 
-  const convertIsoToDateString = (isoString: string) => {
-    if (!isoString) return "";
-    const date = new Date(isoString);
-    if (isNaN(date.getTime())) return "";
-    return date.toISOString().split("T")[0];
-  };
-
   const getFormattedDate = (isoString: string): string => {
     const date = new Date(isoString);
     const today = new Date();
@@ -163,11 +151,11 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
         <section className="newExpenseSection">
           {isModalOpen && (
             <div className="addExpenseModal">
-              <Form className="addExpenseForm" onFinish={handleSubmit}>
+              <form className="addExpenseForm" onSubmit={handleSubmit}>
                 <div className="formData">
                   <div className="expenseElement">
                     <label htmlFor="title">Title</label>
-                    <Input
+                    <input
                       type="text"
                       name="title"
                       placeholder="Expense description"
@@ -179,7 +167,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   {/* Amount */}
                   <div className="expenseElement">
                     <label htmlFor="amount">Amount</label>
-                    <Input
+                    <input
                       type="number"
                       name="amount"
                       placeholder="Amount"
@@ -191,23 +179,23 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   {/* Category */}
                   <div className="expenseElement">
                     <label htmlFor="category">Category</label>
-                    <Select
+                    <select
                       // name="category"
                       // value={formData.category}
                       onChange={handleInputChange}
                     >
-                      <Option value="Food">Food</Option>
-                      <Option value="Drinks">Drinks</Option>
-                      <Option value="Fast Food">Fast Food</Option>
-                      <Option value="Grocery">Grocery</Option>
-                      <Option value="Stationery">Stationery</Option>
-                      <Option value="Fruits">Fruits</Option>
-                      <Option value="Vegetables">Vegetables</Option>
-                      <Option value="Furniture">Furniture</Option>
-                      <Option value="Machinery/Equipment">
+                      <option value="Food">Food</option>
+                      <option value="Drinks">Drinks</option>
+                      <option value="Fast Food">Fast Food</option>
+                      <option value="Grocery">Grocery</option>
+                      <option value="Stationery">Stationery</option>
+                      <option value="Fruits">Fruits</option>
+                      <option value="Vegetables">Vegetables</option>
+                      <option value="Furniture">Furniture</option>
+                      <option value="Machinery/Equipment">
                         Machinery/Equipment
-                      </Option>
-                    </Select>
+                      </option>
+                    </select>
                   </div>
 
                   {/* Date */}
@@ -227,7 +215,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                   {/* Notes */}
                   <div className="expenseElement">
                     <label htmlFor="notes">Additional Note</label>
-                    <Input.TextArea
+                    <textarea
                       name="notes"
                       placeholder="Additional notes if any."
                       value={formData.notes}
@@ -245,7 +233,7 @@ const Expenses: React.FC<NavbarProps> = ({ isCollapsed }) => {
                     <i className="fas fa-times"></i> Cancel
                   </button>
                 </div>
-              </Form>
+              </form>
             </div>
           )}
 
