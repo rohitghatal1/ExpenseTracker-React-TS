@@ -12,10 +12,11 @@ const Dashboard: React.FC<Props> = ({ isCollapsed }) => {
     { name: "anohter", value: 600 },
     { name: "anythig", value: 300 },
   ];
+
   return (
     <div className={`dashboardComponent ${isCollapsed ? "collapsed" : ""}`}>
       <div className="dashboardContainer">
-        <h2 className="bg-red-100">Dashboard</h2>
+        <h2 className="text-lg font-semibold">Dashboard</h2>
 
         <div className="dashboardContentsContainer">
           <section className="barChartSection">
